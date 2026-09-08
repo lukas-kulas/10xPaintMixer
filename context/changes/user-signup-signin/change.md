@@ -1,7 +1,7 @@
 ---
 change_id: user-signup-signin
 title: User signup and signin (email + password)
-status: implementing
+status: implemented
 created: 2026-09-08
 updated: 2026-09-08
 archived_at: null

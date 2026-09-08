@@ -105,17 +105,17 @@ Not applicable — no data model or schema changes.
 
 #### Automated
 
-- [x] 1.1 `npx astro sync` completes without error
-- [x] 1.2 `npm run lint` passes
-- [x] 1.3 `npm run build` passes
+- [x] 1.1 `npx astro sync` completes without error — 9c1a19c
+- [x] 1.2 `npm run lint` passes — 9c1a19c
+- [x] 1.3 `npm run build` passes — 9c1a19c
 
 #### Manual
 
-- [x] 1.4 Sign up with a new email/password redirects to `/auth/confirm-email`
-- [x] 1.5 Signing in after confirmation redirects to `/` with Topbar showing signed-in state
-- [x] 1.6 Visiting `/dashboard` while signed in succeeds
-- [x] 1.7 Signing out redirects to `/` with Topbar showing signed-out state
-- [x] 1.8 Visiting `/dashboard` while signed out redirects to `/auth/signin`
-- [x] 1.9 Wrong password / unknown email on signin shows a readable `?error=` message
-- [x] 1.10 Duplicate signup email shows a readable `?error=` message
-- [x] 1.11 Signin before email confirmation shows a readable, Supabase-driven error
+- [x] 1.4 Sign up with a new email/password redirects to `/auth/confirm-email` — 9c1a19c
+- [x] 1.5 Signing in after confirmation redirects to `/` with Topbar showing signed-in state — 9c1a19c
+- [x] 1.6 Visiting `/dashboard` while signed in succeeds — 9c1a19c
+- [x] 1.7 Signing out redirects to `/` with Topbar showing signed-out state — 9c1a19c
+- [x] 1.8 Visiting `/dashboard` while signed out redirects to `/auth/signin` — 9c1a19c
+- [x] 1.9 Wrong password / unknown email on signin shows a readable `?error=` message — 9c1a19c
+- [x] 1.10 Duplicate signup email shows a readable `?error=` message — 9c1a19c
+- [x] 1.11 Signin before email confirmation shows a readable, Supabase-driven error — 9c1a19c
