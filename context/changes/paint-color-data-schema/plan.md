@@ -209,12 +209,12 @@ Indexes on `paints.brand_id`, `paints.type_id`, and `user_paints.user_id` cover 
 
 #### Automated
 
-- [ ] 2.1 `npx supabase db reset` completes without error and seeds all rows
-- [ ] 2.2 Row counts match expectations (1 / 3 / 210 / 210)
+- [x] 2.1 `npx supabase db reset` completes without error and seeds all rows
+- [x] 2.2 Row counts match expectations (1 / 3 / 210)
 
 #### Manual
 
-- [ ] 2.3 Spot-check 3–5 seeded paint rows against the source CSV
+- [x] 2.3 Spot-check 3–5 seeded paint rows against the source CSV
 
 ### Phase 3: Production Handoff & RLS Verification
 
