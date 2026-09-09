@@ -42,7 +42,7 @@ Hobbysta wargamingu/modelarstwa figurek ma ograniczoną fizycznie paletę farb i
 | ---- | ------------------------ | ------------------------------------------------------------------ | -------------- | --------------------- | -------- |
 | F-01 | paint-color-data-schema  | (foundation) schemat danych: katalog farb, katalog kolorów, lista posiadanych farb z RLS | —              | FR-002, FR-003, FR-004, FR-005 | done |
 | S-01 | user-signup-signin       | założyć konto i zalogować się (email + hasło)                      | —              | FR-001                | done |
-| S-02 | add-paint-to-list        | dodać farbę do swojej listy z bazy dostępnych farb                 | F-01, S-01     | FR-002                | in-progress |
+| S-02 | add-paint-to-list        | dodać farbę do swojej listy z bazy dostępnych farb                 | F-01, S-01     | FR-002                | done |
 | S-03 | view-and-remove-paints   | przeglądać i usuwać farby ze swojej listy                          | F-01, S-02     | FR-003, FR-004        | proposed |
 | S-04 | generate-color-recipe    | wybrać docelowy kolor i otrzymać przepis na jego zmieszanie z posiadanych farb | F-01, S-02     | FR-005, US-01          | proposed |
 
@@ -107,7 +107,7 @@ Foundations poniżej zakładają, że to jest obecne i NIE scaffoldują tego pon
 - **Blockers:** —
 - **Unknowns:** —
 - **Risk:** Gwiazda przewodnia — najmniejszy dowód, że warstwa danych i logowanie faktycznie współpracują, zanim zainwestujemy w bardziej złożoną logikę mieszania (S-04). Zsekwencjonowane zaraz po F-01/S-01, bez opóźniania dla symetrii.
-- **Status:** in-progress
+- **Status:** done
 
 ### S-03: Przeglądanie i usuwanie farb z listy
 
@@ -167,3 +167,4 @@ Brak otwartych pytań na poziomie roadmapy — PRD zamknięty bez luk (`quality_
 
 - **S-01: użytkownik może założyć konto i zalogować się (email + hasło)** — Archived 2026-09-08 → `context/archive/2026-09-08-user-signup-signin/`. Lesson: —.
 - **F-01: (foundation) Supabase ma schemat: katalog referencyjny farb, katalog referencyjny docelowych kolorów oraz tabelę farb posiadanych przez użytkownika, ograniczoną RLS do właściciela; oba katalogi zasiane danymi startowymi.** — Archived 2026-09-09 → `context/archive/2026-09-09-paint-color-data-schema/`. Lesson: —.
+- **S-02: użytkownik może dodać farbę do swojej listy, wybierając z bazy dostępnych farb.** — Archived 2026-09-09 → `context/archive/2026-09-09-add-paint-to-list/`. Lesson: —.
