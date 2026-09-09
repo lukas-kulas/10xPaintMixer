@@ -220,6 +220,6 @@ Indexes on `paints.brand_id`, `paints.type_id`, and `user_paints.user_id` cover 
 
 #### Manual
 
-- [x] 3.1 Two-user RLS isolation confirmed locally
-- [x] 3.2 Catalog tables confirmed read-only to an authenticated non-service client
-- [x] 3.3 Production schema push and seed apply completed, row counts match local
+- [x] 3.1 Two-user RLS isolation confirmed locally — 707f4db
+- [x] 3.2 Catalog tables confirmed read-only to an authenticated non-service client — 707f4db
+- [x] 3.3 Production schema push and seed apply completed, row counts match local — 707f4db

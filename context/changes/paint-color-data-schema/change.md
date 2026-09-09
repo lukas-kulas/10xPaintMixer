@@ -1,7 +1,7 @@
 ---
 change_id: paint-color-data-schema
 title: Paint and color catalog data schema (brands, types, colors, paints, user_paints)
-status: impl_reviewed
+status: implemented
 created: 2026-09-09
 updated: 2026-09-09
 archived_at: null
