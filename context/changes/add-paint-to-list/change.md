@@ -1,9 +1,9 @@
 ---
 change_id: add-paint-to-list
 title: Add paint to list (searchable picker over the paint catalog)
-status: implemented
+status: impl_reviewed
 created: 2026-09-09
-updated: 2026-09-09
+updated: 2026-09-10
 archived_at: null
 ---
 

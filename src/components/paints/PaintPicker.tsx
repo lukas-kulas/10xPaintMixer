@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Search, Check, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ServerError } from "@/components/auth/ServerError";
+import { ServerError } from "@/components/ui/ServerError";
 import { cn } from "@/lib/utils";
 
 interface Paint {

@@ -47,6 +47,7 @@ export const GET: APIRoute = async (context) => {
   const { data: owned, error: ownedError } = await supabase
     .from("user_paints")
     .select("paint_id")
+    .eq("user_id", user.id)
     .overrideTypes<UserPaintRow[], { merge: false }>();
 
   if (ownedError) {
