@@ -13,7 +13,7 @@
 
 create table brands (
   id uuid primary key default gen_random_uuid(),
-  name text not null unique
+  name text not null unique check (length(trim(name)) > 0)
 );
 
 alter table brands enable row level security;
@@ -30,7 +30,7 @@ create policy "Authenticated users can read brands"
 
 create table paint_types (
   id uuid primary key default gen_random_uuid(),
-  name text not null unique
+  name text not null unique check (length(trim(name)) > 0)
 );
 
 alter table paint_types enable row level security;

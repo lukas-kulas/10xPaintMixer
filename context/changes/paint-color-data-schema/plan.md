@@ -198,12 +198,12 @@ Indexes on `paints.brand_id`, `paints.type_id`, and `user_paints.user_id` cover 
 
 #### Automated
 
-- [x] 1.1 Migration applies cleanly against the local instance (`npx supabase db reset`)
-- [x] 1.2 `npx astro sync && npm run lint` still passes
+- [x] 1.1 Migration applies cleanly against the local instance (`npx supabase db reset`) — ebe01ce
+- [x] 1.2 `npx astro sync && npm run lint` still passes — ebe01ce
 
 #### Manual
 
-- [x] 1.3 Studio confirms all 4 tables exist with expected columns and RLS enabled
+- [x] 1.3 Studio confirms all 4 tables exist with expected columns and RLS enabled — ebe01ce
 
 ### Phase 2: Seed Data
 
