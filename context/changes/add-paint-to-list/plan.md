@@ -185,27 +185,27 @@ No schema changes — this slice is pure application code on top of F-01's exist
 
 #### Automated
 
-- [x] 1.1 `npx astro sync && npm run lint` passes
-- [x] 1.2 `npm run build` completes without error
+- [x] 1.1 `npx astro sync && npm run lint` passes — 9bb387f
+- [x] 1.2 `npm run build` completes without error — 9bb387f
 
 #### Manual
 
-- [x] 1.3 `GET /api/paints` returns all 210 paints with `owned: false` for a fresh user
-- [x] 1.4 `POST /api/paints` adds a paint and is idempotent on repeat
-- [x] 1.5 `GET /api/paints` reflects `owned: true` after the add
-- [x] 1.6 Unauthenticated requests to either endpoint return 401
+- [x] 1.3 `GET /api/paints` returns all 210 paints with `owned: false` for a fresh user — 9bb387f
+- [x] 1.4 `POST /api/paints` adds a paint and is idempotent on repeat — 9bb387f
+- [x] 1.5 `GET /api/paints` reflects `owned: true` after the add — 9bb387f
+- [x] 1.6 Unauthenticated requests to either endpoint return 401 — 9bb387f
 
 ### Phase 2: Picker UI
 
 #### Automated
 
-- [ ] 2.1 `npx astro sync && npm run lint` passes
-- [ ] 2.2 `npm run build` completes without error
+- [x] 2.1 `npx astro sync && npm run lint` passes
+- [x] 2.2 `npm run build` completes without error
 
 #### Manual
 
-- [ ] 2.3 Dashboard links through to `/dashboard/paints`
-- [ ] 2.4 Search and type filter both work live
-- [ ] 2.5 Add flips owned state instantly, no page reload
-- [ ] 2.6 Owned state persists across a page reload
-- [ ] 2.7 Signed-out access to `/dashboard/paints` redirects to `/auth/signin`
+- [x] 2.3 Dashboard links through to `/dashboard/paints`
+- [x] 2.4 Search and type filter both work live
+- [x] 2.5 Add flips owned state instantly, no page reload
+- [x] 2.6 Owned state persists across a page reload
+- [x] 2.7 Signed-out access to `/dashboard/paints` redirects to `/auth/signin`
