@@ -1,0 +1,211 @@
+﻿Type,Name,HEX,RGB,R,G,B
+Standard,Matt Black,#000000,"0, 0, 0",0,0,0
+Standard,Deep Grey,#4D5265,"77, 82, 101",77,82,101
+Standard,Uniform Grey,#696F7B,"105, 111, 123",105,111,123
+Standard,Ash Grey,#84878C,"132, 135, 140",132,135,140
+Standard,Company Grey,#BBBCC1,"187, 188, 193",187,188,193
+Standard,Brigade Grey,#D0D1D3,"208, 209, 211",208,209,211
+Standard,Castle Grey,#919087,"145, 144, 135",145,144,135
+Standard,Gargoyle Grey,#A8A294,"168, 162, 148",168,162,148
+Standard,Great Hall Grey,#BCB4A7,"188, 180, 167",188,180,167
+Standard,Worn Stone,#C3BFB0,"195, 191, 176",195,191,176
+Standard,Brainmatter Beige,#DEDCD1,"222, 220, 209",222,220,209
+Standard,Matt White,#FFFFFF,"255, 255, 255",255,255,255
+Standard,Night Sky,#221F1F,"34, 31, 31",34,31,31
+Standard,Thunderus Blue,#31445A,"49, 68, 90",49,68,90
+Standard,Stratos Blue,#365679,"54, 86, 121",54,86,121
+Standard,Wolf Grey,#35658F,"53, 101, 143",53,101,143
+Standard,Runic Cobalt,#5079A3,"80, 121, 163",80,121,163
+Standard,Frost Blue,#9ABEDD,"154, 190, 221",154,190,221
+Standard,Triumphant Navy,#182C55,"24, 44, 85",24,44,85
+Standard,Gothic Blue,#2D3F77,"45, 63, 119",45,63,119
+Standard,Ultramarine Blue,#274D8E,"39, 77, 142",39,77,142
+Standard,Alpha Blue,#667EBE,"102, 126, 190",102,126,190
+Standard,Baron Blue,#7D96CD,"125, 150, 205",125,150,205
+Standard,Augur Blue,#ABBFE2,"171, 191, 226",171,191,226
+Standard,Imperial Navy,#003663,"0, 54, 99",0,54,99
+Standard,Regal Blue,#005088,"0, 80, 136",0,80,136
+Standard,Royal Blue,#0062B0,"0, 98, 176",0,98,176
+Standard,Crystal Blue,#0074BB,"0, 116, 187",0,116,187
+Standard,Arctic Blue,#1195D3,"17, 149, 211",17,149,211
+Standard,Bright Sapphire,#86CDF1,"134, 205, 241",134,205,241
+Standard,Deep Ocean Blue,#1C3244,"28, 50, 68",28,50,68
+Standard,Abyssal Blue,#004F6B,"0, 79, 107",0,79,107
+Standard,Tidal Blue,#006C94,"0, 108, 148",0,108,148
+Standard,Phalanx Blue,#0489AE,"4, 137, 174",4,137,174
+Standard,Shieldwall Blue,#07A1C8,"7, 161, 200",7,161,200
+Standard,Aegis Aqua,#3AB3D4,"58, 179, 212",58,179,212
+Standard,Deep Azure,#004954,"0, 73, 84",0,73,84
+Standard,Hydra Turquoise,#00827E,"0, 130, 126",0,130,126
+Standard,Turquoise Siren,#00A19A,"0, 161, 154",0,161,154
+Standard,Aquamarine,#6DC7C1,"109, 199, 193",109,199,193
+Standard,Neptune Glow,#A3DAD5,"163, 218, 213",163,218,213
+Standard,Marine Mist,#C0E8E4,"192, 232, 228",192,232,228
+Standard,Scarab Green,#004B43,"0, 75, 67",0,75,67
+Standard,Temple Gate Teal,#006B60,"0, 107, 96",0,107,96
+Standard,Pharaoh Guard,#008577,"0, 133, 119",0,133,119
+Standard,Talisman Teal,#009F8C,"0, 159, 140",0,159,140
+Standard,Aqua Alchemy,#38B8A8,"56, 184, 168",56,184,168
+Standard,Amulet Aqua,#7DD0C4,"125, 208, 196",125,208,196
+Standard,Angel Green,#00412D,"0, 65, 45",0,65,45
+Standard,Guardian Green,#006147,"0, 97, 71",0,97,71
+Standard,Greenskin,#007D4D,"0, 125, 77",0,125,77
+Standard,Eternal Hunt,#009E59,"0, 158, 89",0,158,89
+Standard,Wild Green,#40B471,"64, 180, 113",64,180,113
+Standard,Ferocious Green,#7ECF99,"126, 207, 153",126,207,153
+Standard,Emerald Forest,#004225,"0, 66, 37",0,66,37
+Standard,Leafy Green,#006936,"0, 105, 54",0,105,54
+Standard,Rainforest,#008641,"0, 134, 65",0,134,65
+Standard,Electric Lime,#7FBF3A,"127, 191, 58",127,191,58
+Standard,Vivid Volt,#A3D24A,"163, 210, 74",163,210,74
+Standard,Afterglow,#C6E580,"198, 229, 128",198,229,128
+Standard,Evergreen Fog,#4B574B,"75, 87, 75",75,87,75
+Standard,Medieval Forest,#5B6B5A,"91, 107, 90",91,107,90
+Standard,Patagon Pine,#6A7D68,"106, 125, 104",106,125,104
+Standard,Autumn Sage,#788B75,"120, 139, 117",120,139,117
+Standard,Forest Faun,#8EA488,"142, 164, 136",142,164,136
+Standard,Mossy Green,#A0B49A,"160, 180, 154",160,180,154
+Standard,Woodland Camo,#4A5839,"74, 88, 57",74,88,57
+Standard,Army Green,#5A6A48,"90, 106, 72",90,106,72
+Standard,Camouflage Green,#6A7A55,"106, 122, 85",106,122,85
+Standard,Olive Drab,#7A8A60,"122, 138, 96",122,138,96
+Standard,Necrotic Flesh,#B0BB92,"176, 187, 146",176,187,146
+Standard,Grotesque Green,#98A87A,"152, 168, 122",152,168,122
+Standard,Brigadine Brown,#3E2E20,"62, 46, 32",62,46,32
+Standard,Bootstrap Brown,#5A4534,"90, 69, 52",90,69,52
+Standard,Leather Brown,#6A5038,"106, 80, 56",106,80,56
+Standard,Paratrooper Tan,#7A6248,"122, 98, 72",122,98,72
+Standard,Command Khaki,#8A785A,"138, 120, 90",138,120,90
+Standard,Urban Buff,#9E8C75,"158, 140, 117",158,140,117
+Standard,Tundra Taupe,#6F6755,"111, 103, 85",111,103,85
+Standard,Prairie Ochre,#8D815D,"141, 129, 93",141,129,93
+Standard,Desert Yellow,#AA9450,"170, 148, 80",170,148,80
+Standard,Wasteland Clay,#A89058,"168, 144, 88",168,144,88
+Standard,Burnt Tuft,#8A7A4A,"138, 122, 74",138,122,74
+Standard,Barren Dune,#C8B070,"200, 176, 112",200,176,112
+Standard,Dusty Skull,#BCB088,"188, 176, 136",188,176,136
+Standard,Tomb King Tan,#CCBA92,"204, 186, 146",204,186,146
+Standard,Skeleton Bone,#DCCA9E,"220, 202, 158",220,202,158
+Standard,Ancient Stone,#DCD5BC,"220, 213, 188",220,213,188
+Standard,Boney Spike,#E8E0C6,"232, 224, 198",232,224,198
+Standard,Pale Sand,#F4F0E0,"244, 240, 224",244,240,224
+Standard,Demigod Flames,#C07818,"192, 120, 24",192,120,24
+Standard,Fiendish Yellow,#D89818,"216, 152, 24",216,152,24
+Standard,Demonic Yellow,#F6D010,"246, 208, 16",246,208,16
+Standard,Warped Yellow,#F8E040,"248, 224, 64",248,224,64
+Standard,Space Dust,#FAEA90,"250, 234, 144",250,234,144
+Standard,Ice Yellow,#FCF5D0,"252, 245, 208",252,245,208
+Standard,Molten Lava,#BA3210,"186, 50, 16",186,50,16
+Standard,Burning Ore,#D04818,"208, 72, 24",208,72,24
+Standard,Lava Orange,#E45A20,"228, 90, 32",228,90,32
+Standard,Flickering Flame,#F07830,"240, 120, 48",240,120,48
+Standard,Glowing Inferno,#F8A058,"248, 160, 88",248,160,88
+Standard,Inner Light,#FAC080,"250, 192, 128",250,192,128
+Standard,Resplendent Red,#8C1218,"140, 18, 24",140,18,24
+Standard,Angelic Red,#A41A1A,"164, 26, 26",164,26,26
+Standard,Legendary Red,#C42024,"196, 32, 36",196,32,36
+Standard,Sacred Red,#D44034,"212, 64, 52",212,64,52
+Standard,Violent Vermillion,#E86050,"232, 96, 80",232,96,80
+Standard,Raging Rouge,#F08878,"240, 136, 120",240,136,120
+Standard,Oak Brown,#4C2A18,"76, 42, 24",76,42,24
+Standard,Tree Ancient,#5A3A22,"90, 58, 34",90,58,34
+Standard,Dryad Brown,#6A4A2C,"106, 74, 44",106,74,44
+Standard,Fur Brown,#905830,"144, 88, 48",144,88,48
+Standard,Ruddy Umber,#AA7048,"170, 112, 72",170,112,72
+Standard,Buffed Hide,#C08A60,"192, 138, 96",192,138,96
+Standard,Basilisk Red,#701C18,"112, 28, 24",112,28,24
+Standard,Wyvern Fury,#8A1E1E,"138, 30, 30",138,30,30
+Standard,Dragon Red,#A42022,"164, 32, 34",164,32,34
+Standard,Pure Red,#D43030,"212, 48, 48",212,48,48
+Standard,Blood Chalice,#BC4848,"188, 72, 72",188,72,72
+Standard,Raging Rose,#DC6A6A,"220, 106, 106",220,106,106
+Standard,Wicked Pink,#CC5878,"204, 88, 120",204,88,120
+Standard,Impish Rouge,#D87890,"216, 120, 144",216,120,144
+Standard,Pixie Pink,#E290A0,"226, 144, 160",226,144,160
+Standard,Wired Elixir,#E098B0,"224, 152, 176",224,152,176
+Standard,Pink Potion,#F0B8CC,"240, 184, 204",240,184,204
+Standard,Doomfire Drab,#6C4C5A,"108, 76, 90",108,76,90
+Standard,Terrestial Titan,#3C3048,"60, 48, 72",60,48,72
+Standard,Alien Purple,#5C3C78,"92, 60, 120",92,60,120
+Standard,Cultist Purple,#583E70,"88, 62, 112",88,62,112
+Standard,Hexed Violet,#6C5082,"108, 80, 130",108,80,130
+Standard,Violet Coven,#7C6498,"124, 100, 152",124,100,152
+Standard,Kraken Lavender,#A290B8,"162, 144, 184",162,144,184
+Standard,Diabolic Plum,#54305C,"84, 48, 92",84,48,92
+Standard,Magecast Magenta,#7C4070,"124, 64, 112",124,64,112
+Standard,Warlock Magenta,#B85A88,"184, 90, 136",184,90,136
+Standard,Spellbound Fuchsia,#A04880,"160, 72, 128",160,72,128
+Standard,Enchanted Pink,#CC70AA,"204, 112, 170",204,112,170
+Standard,Diviner Light,#DC98C6,"220, 152, 198",220,152,198
+Standard,Mulled Berry,#4E303C,"78, 48, 60",78,48,60
+Standard,Moldy Wine,#5C3A48,"92, 58, 72",92,58,72
+Standard,Elder Flower,#644858,"100, 72, 88",100,72,88
+Standard,Forbidden Fruit,#745668,"116, 86, 104",116,86,104
+Standard,Figgy Pink,#8C7080,"140, 112, 128",140,112,128
+Standard,Wilted Rose,#A08894,"160, 136, 148",160,136,148
+Standard,Moonstone Skin,#E4C8B0,"228, 200, 176",228,200,176
+Standard,Agate Skin,#ECD4C0,"236, 212, 192",236,212,192
+Standard,Barbarian Flesh,#E4A87E,"228, 168, 126",228,168,126
+Standard,Ruby Skin,#E4C0B0,"228, 192, 176",228,192,176
+Standard,Opal Skin,#F4DCD0,"244, 220, 208",244,220,208
+Standard,Pearl Skin,#F8E6DC,"248, 230, 220",248,230,220
+Standard,Carnelian Skin,#C49080,"196, 144, 128",196,144,128
+Standard,Tiger's Eye Skin,#CCAAA0,"204, 170, 160",204,170,160
+Standard,Topaz Skin,#D4B8A0,"212, 184, 160",212,184,160
+Standard,Jasper Skin,#DCBEAC,"220, 190, 172",220,190,172
+Standard,Tourmaline Skin,#E8D0C0,"232, 208, 192",232,208,192
+Standard,Leopard Stone Skin,#D8A88A,"216, 168, 138",216,168,138
+Standard,Obsidian Skin,#5C4030,"92, 64, 48",92,64,48
+Standard,Onyx Skin,#6C5048,"108, 80, 72",108,80,72
+Standard,Mocca Skin,#7C6058,"124, 96, 88",124,96,88
+Standard,Amber Skin,#8C7068,"140, 112, 104",140,112,104
+Standard,Dorado Skin,#9C8078,"156, 128, 120",156,128,120
+Standard,Quartz Skin,#AC9090,"172, 144, 144",172,144,144
+Standard,Disgusting Slime,#8ACC30,"138, 204, 48",138,204,48
+Standard,Dry Blood,#601010,"96, 16, 16",96,16,16
+Standard,True Blood,#901014,"144, 16, 20",144,16,20
+Standard,Dark Rust,#704028,"112, 64, 40",112,64,40
+Standard,Fresh Rust,#B05020,"176, 80, 32",176,80,32
+Standard,Verdigris,#40A088,"64, 160, 136",64,160,136
+Standard,Oil Stains,#202020,"32, 32, 32",32,32,32
+Standard,Oozing Vomit,#A0A038,"160, 160, 56",160,160,56
+Standard,Plasma Coil Glow,#40C0F0,"64, 192, 240",64,192,240
+Standard,Data System Glow,#40F080,"64, 240, 128",64,240,128
+Standard,Lens Flare Glow,#F05090,"240, 80, 144",240,80,144
+Standard,Radiation Glow,#80F020,"128, 240, 32",128,240,32
+Standard,Power Nade Glow,#8050F0,"128, 80, 240",128,80,240
+Metallic,Rough Iron,#3C3C42,"60, 60, 66",60,60,66
+Metallic,Red Copper,#A05848,"160, 88, 72",160,88,72
+Metallic,Weapon Bronze,#7C5A38,"124, 90, 56",124,90,56
+Metallic,True Copper,#B06050,"176, 96, 80",176,96,80
+Metallic,Evil Chrome,#C0C0C0,"192, 192, 192",192,192,192
+Metallic,True Brass,#A08050,"160, 128, 80",160,128,80
+Metallic,Tainted Gold,#8A6840,"138, 104, 64",138,104,64
+Metallic,Greedy Gold,#C0A050,"192, 160, 80",192,160,80
+Metallic,Bright Gold,#D0B858,"208, 184, 88",208,184,88
+Metallic,Mithril,#E0E0E0,"224, 224, 224",224,224,224
+Metallic,Shining Silver,#C8C8C8,"200, 200, 200",200,200,200
+Metallic,Plate Mail,#989898,"152, 152, 152",152,152,152
+Metallic,Gun Metal,#505050,"80, 80, 80",80,80,80
+Metallic,Cobalt Metal,#4860A0,"72, 96, 160",72,96,160
+Metallic,Death Metal,#2C2C30,"44, 44, 48",44,44,48
+Metallic,Dark Emerald,#306850,"48, 104, 80",48,104,80
+Metallic,Glittering Green,#40A868,"64, 168, 104",64,168,104
+Metallic,Gemstone Red,#A83030,"168, 48, 48",168,48,48
+Washes,Dark Tone,#382818,"56, 40, 24",56,40,24
+Washes,Strong Tone,#4C3618,"76, 54, 24",76,54,24
+Washes,Soft Tone,#5C4220,"92, 66, 32",92,66,32
+Washes,Light Tone,#6C5228,"108, 82, 40",108,82,40
+Washes,Sepia Tone,#705030,"112, 80, 48",112,80,48
+Washes,Rust Tone,#7C4828,"124, 72, 40",124,72,40
+Washes,Dar Red Tone,#602020,"96, 32, 32",96,32,32
+Washes,Red Tone,#782020,"120, 32, 32",120,32,32
+Washes,Orange Tone,#8C4020,"140, 64, 32",140,64,32
+Washes,Green Tone,#204020,"32, 64, 32",32,64,32
+Washes,Military Shade,#405C38,"64, 92, 56",64,92,56
+Washes,Blue Tone,#184060,"24, 64, 96",24,64,96
+Washes,Dark Blue Tone,#102850,"16, 40, 80",16,40,80
+Washes,Purple Tone,#402860,"64, 40, 96",64,40,96
+Washes,Magenta Tone,#603850,"96, 56, 80",96,56,80
+Washes,Strong Skin Shade,#604840,"96, 72, 64",96,72,64
+Washes,Dark Skin Shade,#504030,"80, 64, 48",80,64,48
