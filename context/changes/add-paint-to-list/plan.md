@@ -199,13 +199,13 @@ No schema changes — this slice is pure application code on top of F-01's exist
 
 #### Automated
 
-- [x] 2.1 `npx astro sync && npm run lint` passes
-- [x] 2.2 `npm run build` completes without error
+- [x] 2.1 `npx astro sync && npm run lint` passes — 5818859
+- [x] 2.2 `npm run build` completes without error — 5818859
 
 #### Manual
 
-- [x] 2.3 Dashboard links through to `/dashboard/paints`
-- [x] 2.4 Search and type filter both work live
-- [x] 2.5 Add flips owned state instantly, no page reload
-- [x] 2.6 Owned state persists across a page reload
-- [x] 2.7 Signed-out access to `/dashboard/paints` redirects to `/auth/signin`
+- [x] 2.3 Dashboard links through to `/dashboard/paints` — 5818859
+- [x] 2.4 Search and type filter both work live — 5818859
+- [x] 2.5 Add flips owned state instantly, no page reload — 5818859
+- [x] 2.6 Owned state persists across a page reload — 5818859
+- [x] 2.7 Signed-out access to `/dashboard/paints` redirects to `/auth/signin` — 5818859
