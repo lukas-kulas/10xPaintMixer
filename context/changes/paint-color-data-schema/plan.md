@@ -209,17 +209,17 @@ Indexes on `paints.brand_id`, `paints.type_id`, and `user_paints.user_id` cover 
 
 #### Automated
 
-- [x] 2.1 `npx supabase db reset` completes without error and seeds all rows
-- [x] 2.2 Row counts match expectations (1 / 3 / 210)
+- [x] 2.1 `npx supabase db reset` completes without error and seeds all rows — 8a187d9
+- [x] 2.2 Row counts match expectations (1 / 3 / 210) — 8a187d9
 
 #### Manual
 
-- [x] 2.3 Spot-check 3–5 seeded paint rows against the source CSV
+- [x] 2.3 Spot-check 3–5 seeded paint rows against the source CSV — 8a187d9
 
 ### Phase 3: Production Handoff & RLS Verification
 
 #### Manual
 
-- [ ] 3.1 Two-user RLS isolation confirmed locally
-- [ ] 3.2 Catalog tables confirmed read-only to an authenticated non-service client
-- [ ] 3.3 Production schema push and seed apply completed, row counts match local
+- [x] 3.1 Two-user RLS isolation confirmed locally
+- [x] 3.2 Catalog tables confirmed read-only to an authenticated non-service client
+- [x] 3.3 Production schema push and seed apply completed, row counts match local
