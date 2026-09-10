@@ -286,13 +286,13 @@ Additive only — one new table (`recipes`), no changes to `paints`/`user_paints
 
 #### Automated
 
-- [x] 4.1 Type checking passes: `npx astro sync && npx tsc --noEmit`
-- [x] 4.2 Linting passes: `npm run lint`
-- [x] 4.3 Production build succeeds: `npm run build`
+- [x] 4.1 Type checking passes: `npx astro sync && npx tsc --noEmit` — f9e6398
+- [x] 4.2 Linting passes: `npm run lint` — f9e6398
+- [x] 4.3 Production build succeeds: `npm run build` — f9e6398
 
 #### Manual
 
-- [x] 4.4 Recipe flow works end-to-end for a user with owned paints
-- [x] 4.5 Empty-state message shown for a user with no owned paints
-- [x] 4.6 Dashboard link works
-- [x] 4.7 No regressions on `/dashboard/paints` or `/dashboard/my-paints`
+- [x] 4.4 Recipe flow works end-to-end for a user with owned paints — f9e6398
+- [x] 4.5 Empty-state message shown for a user with no owned paints — f9e6398
+- [x] 4.6 Dashboard link works — f9e6398
+- [x] 4.7 No regressions on `/dashboard/paints` or `/dashboard/my-paints` — f9e6398
