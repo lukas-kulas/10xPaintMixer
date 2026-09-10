@@ -248,25 +248,25 @@ Additive only — one new table (`recipes`), no changes to `paints`/`user_paints
 
 #### Automated
 
-- [x] 1.1 Migration applies cleanly: `npx supabase db reset`
-- [x] 1.2 Type checking passes: `npx astro sync && npx tsc --noEmit`
-- [x] 1.3 Linting passes: `npm run lint`
+- [x] 1.1 Migration applies cleanly: `npx supabase db reset` — 3bb15be
+- [x] 1.2 Type checking passes: `npx astro sync && npx tsc --noEmit` — 3bb15be
+- [x] 1.3 Linting passes: `npm run lint` — 3bb15be
 
 #### Manual
 
-- [x] 1.4 `recipes` table and RLS policies visible after migration
+- [x] 1.4 `recipes` table and RLS policies visible after migration — 3bb15be
 
 ### Phase 2: Recipe Generation Engine
 
 #### Automated
 
-- [ ] 2.1 Type checking passes: `npx tsc --noEmit`
-- [ ] 2.2 Linting passes: `npm run lint`
+- [x] 2.1 Type checking passes: `npx tsc --noEmit`
+- [x] 2.2 Linting passes: `npm run lint`
 
 #### Manual
 
-- [ ] 2.3 Exact-match and empty-list guard behave as expected
-- [ ] 2.4 Timing check confirms search completes within the NFR budget
+- [x] 2.3 Exact-match and empty-list guard behave as expected
+- [x] 2.4 Timing check confirms search completes within the NFR budget
 
 ### Phase 3: API Route
 
