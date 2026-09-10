@@ -272,27 +272,27 @@ Additive only — one new table (`recipes`), no changes to `paints`/`user_paints
 
 #### Automated
 
-- [x] 3.1 Type checking passes: `npx tsc --noEmit`
-- [x] 3.2 Linting passes: `npm run lint`
-- [x] 3.3 Production build succeeds: `npm run build`
+- [x] 3.1 Type checking passes: `npx tsc --noEmit` — ddd9a3b
+- [x] 3.2 Linting passes: `npm run lint` — ddd9a3b
+- [x] 3.3 Production build succeeds: `npm run build` — ddd9a3b
 
 #### Manual
 
-- [x] 3.4 Valid request returns a recipe and persists a `recipes` row
-- [x] 3.5 Empty-owned-list returns `422` with a readable message
-- [x] 3.6 Unauthenticated returns `401`; invalid body returns `400`
+- [x] 3.4 Valid request returns a recipe and persists a `recipes` row — ddd9a3b
+- [x] 3.5 Empty-owned-list returns `422` with a readable message — ddd9a3b
+- [x] 3.6 Unauthenticated returns `401`; invalid body returns `400` — ddd9a3b
 
 ### Phase 4: UI
 
 #### Automated
 
-- [ ] 4.1 Type checking passes: `npx astro sync && npx tsc --noEmit`
-- [ ] 4.2 Linting passes: `npm run lint`
-- [ ] 4.3 Production build succeeds: `npm run build`
+- [x] 4.1 Type checking passes: `npx astro sync && npx tsc --noEmit`
+- [x] 4.2 Linting passes: `npm run lint`
+- [x] 4.3 Production build succeeds: `npm run build`
 
 #### Manual
 
-- [ ] 4.4 Recipe flow works end-to-end for a user with owned paints
-- [ ] 4.5 Empty-state message shown for a user with no owned paints
-- [ ] 4.6 Dashboard link works
-- [ ] 4.7 No regressions on `/dashboard/paints` or `/dashboard/my-paints`
+- [x] 4.4 Recipe flow works end-to-end for a user with owned paints
+- [x] 4.5 Empty-state message shown for a user with no owned paints
+- [x] 4.6 Dashboard link works
+- [x] 4.7 No regressions on `/dashboard/paints` or `/dashboard/my-paints`
