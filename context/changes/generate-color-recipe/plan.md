@@ -260,27 +260,27 @@ Additive only — one new table (`recipes`), no changes to `paints`/`user_paints
 
 #### Automated
 
-- [x] 2.1 Type checking passes: `npx tsc --noEmit`
-- [x] 2.2 Linting passes: `npm run lint`
+- [x] 2.1 Type checking passes: `npx tsc --noEmit` — 277debe
+- [x] 2.2 Linting passes: `npm run lint` — 277debe
 
 #### Manual
 
-- [x] 2.3 Exact-match and empty-list guard behave as expected
-- [x] 2.4 Timing check confirms search completes within the NFR budget
+- [x] 2.3 Exact-match and empty-list guard behave as expected — 277debe
+- [x] 2.4 Timing check confirms search completes within the NFR budget — 277debe
 
 ### Phase 3: API Route
 
 #### Automated
 
-- [ ] 3.1 Type checking passes: `npx tsc --noEmit`
-- [ ] 3.2 Linting passes: `npm run lint`
-- [ ] 3.3 Production build succeeds: `npm run build`
+- [x] 3.1 Type checking passes: `npx tsc --noEmit`
+- [x] 3.2 Linting passes: `npm run lint`
+- [x] 3.3 Production build succeeds: `npm run build`
 
 #### Manual
 
-- [ ] 3.4 Valid request returns a recipe and persists a `recipes` row
-- [ ] 3.5 Empty-owned-list returns `422` with a readable message
-- [ ] 3.6 Unauthenticated returns `401`; invalid body returns `400`
+- [x] 3.4 Valid request returns a recipe and persists a `recipes` row
+- [x] 3.5 Empty-owned-list returns `422` with a readable message
+- [x] 3.6 Unauthenticated returns `401`; invalid body returns `400`
 
 ### Phase 4: UI
 
