@@ -177,14 +177,14 @@ No schema changes — `user_paints`'s `DELETE` RLS policy already exists from F-
 
 #### Automated
 
-- [x] 2.1 `npx astro sync && npm run lint` passes
-- [x] 2.2 `npm run build` completes without error
+- [x] 2.1 `npx astro sync && npm run lint` passes — 4b85238
+- [x] 2.2 `npm run build` completes without error — 4b85238
 
 #### Manual
 
-- [x] 2.3 Dashboard nav shows correctly labeled "Add Paints" and "My Paints" links
-- [x] 2.4 Zero-owned empty state shows message + working link to Add Paints
-- [x] 2.5 Owned-only list shows exactly the paints added; search and type-filter both work
-- [x] 2.6 No-match-on-filter state is distinct from zero-owned empty state
-- [x] 2.7 Remove flips list instantly, no reload; persists across a reload
-- [x] 2.8 Signed-out access to `/dashboard/my-paints` redirects to `/auth/signin`
+- [x] 2.3 Dashboard nav shows correctly labeled "Add Paints" and "My Paints" links — 4b85238
+- [x] 2.4 Zero-owned empty state shows message + working link to Add Paints — 4b85238
+- [x] 2.5 Owned-only list shows exactly the paints added; search and type-filter both work — 4b85238
+- [x] 2.6 No-match-on-filter state is distinct from zero-owned empty state — 4b85238
+- [x] 2.7 Remove flips list instantly, no reload; persists across a reload — 4b85238
+- [x] 2.8 Signed-out access to `/dashboard/my-paints` redirects to `/auth/signin` — 4b85238
