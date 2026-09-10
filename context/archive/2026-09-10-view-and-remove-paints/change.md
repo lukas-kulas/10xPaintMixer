@@ -1,9 +1,10 @@
 ---
 change_id: view-and-remove-paints
 title: View and remove paints from the owned list
-status: impl_reviewed
+status: archived
 created: 2026-09-10
 updated: 2026-09-10
+archived_at: 2026-09-10T06:44:45Z
 ---
 
 ## Notes
