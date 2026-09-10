@@ -20,6 +20,9 @@ export const DELETE: APIRoute = async (context) => {
   }
 
   const paintId = context.params.id;
+  if (typeof paintId !== "string" || !paintId) {
+    return json({ error: "id is required" }, 400);
+  }
 
   const { error } = await supabase.from("user_paints").delete().eq("user_id", user.id).eq("paint_id", paintId);
 

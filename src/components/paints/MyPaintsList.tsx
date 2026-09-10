@@ -28,7 +28,7 @@ export default function MyPaintsList() {
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState<string | null>(null);
-  const [pendingId, setPendingId] = useState<string | null>(null);
+  const [pendingIds, setPendingIds] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     let cancelled = false;
@@ -70,7 +70,7 @@ export default function MyPaintsList() {
   }, [owned, search, typeFilter]);
 
   async function handleRemove(paintId: string) {
-    setPendingId(paintId);
+    setPendingIds((prev) => new Set(prev).add(paintId));
     setError(null);
     try {
       const res = await fetch(`/api/paints/${paintId}`, { method: "DELETE" });
@@ -81,7 +81,11 @@ export default function MyPaintsList() {
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to remove paint");
     } finally {
-      setPendingId(null);
+      setPendingIds((prev) => {
+        const next = new Set(prev);
+        next.delete(paintId);
+        return next;
+      });
     }
   }
 
@@ -170,7 +174,7 @@ export default function MyPaintsList() {
             <Button
               type="button"
               size="sm"
-              disabled={pendingId === paint.id}
+              disabled={pendingIds.has(paint.id)}
               onClick={() => void handleRemove(paint.id)}
               className="bg-red-600/80 text-white hover:bg-red-500"
             >
