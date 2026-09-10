@@ -8,7 +8,6 @@ declare module "spectral.js" {
     constructor(input: string | number[]);
     readonly sRGB: number[];
     readonly OKLab: number[];
-    readonly OKLCh: number[];
     tintingStrength: number;
     toString(options?: { format?: string; method?: string }): string;
   }

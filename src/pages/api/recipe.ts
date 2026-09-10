@@ -30,6 +30,23 @@ interface RecipeRequestBody {
   target_paint_id?: unknown;
 }
 
+// Soft, per-isolate rate limit: recipe generation is far more compute-heavy than
+// other routes (~5,000 spectral.mix() calls per request). This only limits requests
+// hitting the same Worker isolate, not globally across Cloudflare's edge — a real
+// distributed limit would need a KV/Durable Object binding, which isn't provisioned
+// in this project. Good enough to blunt casual abuse without new infra.
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX_REQUESTS = 10;
+const requestTimestampsByUser = new Map<string, number[]>();
+
+function isRateLimited(userId: string): boolean {
+  const now = Date.now();
+  const recent = (requestTimestampsByUser.get(userId) ?? []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+  recent.push(now);
+  requestTimestampsByUser.set(userId, recent);
+  return recent.length > RATE_LIMIT_MAX_REQUESTS;
+}
+
 export const POST: APIRoute = async (context) => {
   const supabase = createClient(context.request.headers, context.cookies);
   if (!supabase) {
@@ -39,6 +56,10 @@ export const POST: APIRoute = async (context) => {
   const user = context.locals.user;
   if (!user) {
     return json({ error: "Unauthorized" }, 401);
+  }
+
+  if (isRateLimited(user.id)) {
+    return json({ error: "Too many recipe requests — please wait a moment and try again." }, 429);
   }
 
   const raw: unknown = await context.request.json().catch(() => null);
