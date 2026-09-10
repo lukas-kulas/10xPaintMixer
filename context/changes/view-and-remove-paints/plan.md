@@ -164,27 +164,27 @@ No schema changes — `user_paints`'s `DELETE` RLS policy already exists from F-
 
 #### Automated
 
-- [x] 1.1 `npx astro sync && npm run lint` passes
-- [x] 1.2 `npm run build` completes without error
+- [x] 1.1 `npx astro sync && npm run lint` passes — 98db1aa
+- [x] 1.2 `npm run build` completes without error — 98db1aa
 
 #### Manual
 
-- [x] 1.3 `DELETE /api/paints/:id` removes the paint and `GET /api/paints` reflects `owned: false`
-- [x] 1.4 Repeat `DELETE` on the same paint is idempotent (no error)
-- [x] 1.5 Unauthenticated `DELETE` returns 401
+- [x] 1.3 `DELETE /api/paints/:id` removes the paint and `GET /api/paints` reflects `owned: false` — 98db1aa
+- [x] 1.4 Repeat `DELETE` on the same paint is idempotent (no error) — 98db1aa
+- [x] 1.5 Unauthenticated `DELETE` returns 401 — 98db1aa
 
 ### Phase 2: My Paints UI
 
 #### Automated
 
-- [ ] 2.1 `npx astro sync && npm run lint` passes
-- [ ] 2.2 `npm run build` completes without error
+- [x] 2.1 `npx astro sync && npm run lint` passes
+- [x] 2.2 `npm run build` completes without error
 
 #### Manual
 
-- [ ] 2.3 Dashboard nav shows correctly labeled "Add Paints" and "My Paints" links
-- [ ] 2.4 Zero-owned empty state shows message + working link to Add Paints
-- [ ] 2.5 Owned-only list shows exactly the paints added; search and type-filter both work
-- [ ] 2.6 No-match-on-filter state is distinct from zero-owned empty state
-- [ ] 2.7 Remove flips list instantly, no reload; persists across a reload
-- [ ] 2.8 Signed-out access to `/dashboard/my-paints` redirects to `/auth/signin`
+- [x] 2.3 Dashboard nav shows correctly labeled "Add Paints" and "My Paints" links
+- [x] 2.4 Zero-owned empty state shows message + working link to Add Paints
+- [x] 2.5 Owned-only list shows exactly the paints added; search and type-filter both work
+- [x] 2.6 No-match-on-filter state is distinct from zero-owned empty state
+- [x] 2.7 Remove flips list instantly, no reload; persists across a reload
+- [x] 2.8 Signed-out access to `/dashboard/my-paints` redirects to `/auth/signin`
