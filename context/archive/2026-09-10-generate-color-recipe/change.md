@@ -1,10 +1,10 @@
 ---
 change_id: generate-color-recipe
 title: Generate color recipe from owned paints
-status: impl_reviewed
+status: archived
 created: 2026-09-10
 updated: 2026-09-10
-archived_at: null
+archived_at: 2026-09-10T20:26:26Z
 ---
 
 ## Notes
