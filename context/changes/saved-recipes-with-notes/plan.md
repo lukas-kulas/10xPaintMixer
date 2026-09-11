@@ -528,27 +528,27 @@ decision.
 
 #### Automated
 
-- [x] 3.1 Type checking passes
-- [x] 3.2 Production build succeeds
-- [x] 3.3 Integration test project passes
+- [x] 3.1 Type checking passes — 7e92971
+- [x] 3.2 Production build succeeds — 7e92971
+- [x] 3.3 Integration test project passes — 7e92971
 
 #### Manual
 
-- [x] 3.4 PATCHing a note updates it on a subsequent `GET`
-- [x] 3.5 PATCHing an empty string clears the note
+- [x] 3.4 PATCHing a note updates it on a subsequent `GET` — 7e92971
+- [x] 3.5 PATCHing an empty string clears the note — 7e92971
 
 ### Phase 4: UI — Save button and Saved Recipes page
 
 #### Automated
 
-- [ ] 4.1 Type checking passes
-- [ ] 4.2 Production build succeeds
-- [ ] 4.3 Full test suite passes
+- [x] 4.1 Type checking passes
+- [x] 4.2 Production build succeeds
+- [x] 4.3 Full test suite passes
 
 #### Manual
 
-- [ ] 4.4 Save button shows "Saved" and disables; resets on new generation
-- [ ] 4.5 Saved Recipes tab shows the just-saved recipe with correct details
-- [ ] 4.6 Note add/edit persists across refresh
-- [ ] 4.7 Delete removes the recipe from the list
-- [ ] 4.8 An un-saved generated recipe never appears on the list
+- [x] 4.4 Save button shows "Saved" and disables; resets on new generation
+- [x] 4.5 Saved Recipes tab shows the just-saved recipe with correct details
+- [x] 4.6 Note add/edit persists across refresh
+- [x] 4.7 Delete removes the recipe from the list
+- [x] 4.8 An un-saved generated recipe never appears on the list

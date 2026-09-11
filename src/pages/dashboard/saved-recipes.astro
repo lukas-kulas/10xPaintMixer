@@ -1,0 +1,17 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SavedRecipesList from "@/components/recipe/SavedRecipesList";
+---
+
+<Layout title="Saved Recipes">
+  <div class="bg-cosmic min-h-screen p-4 py-10">
+    <div class="mx-auto max-w-2xl rounded-2xl border border-white/10 bg-white/10 p-8 text-white backdrop-blur-xl">
+      <h1 class="mb-1 bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-3xl font-bold text-transparent">
+        Saved Recipes
+      </h1>
+      <p class="mb-6 text-sm text-blue-100/60">The recipes you've saved, with notes.</p>
+      <SavedRecipesList client:load />
+      <a href="/dashboard" class="mt-6 inline-block text-sm text-blue-100/60 hover:text-white">← Back to dashboard</a>
+    </div>
+  </div>
+</Layout>

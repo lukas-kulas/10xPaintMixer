@@ -33,6 +33,12 @@ const { user } = Astro.locals;
         >
           Generate Recipe
         </a>
+        <a
+          href="/dashboard/saved-recipes"
+          class="rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-sm transition-colors hover:bg-white/20"
+        >
+          Saved Recipes
+        </a>
         <form method="POST" action="/api/auth/signout">
           <button
             type="submit"

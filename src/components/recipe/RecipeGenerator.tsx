@@ -24,8 +24,11 @@ interface RecipeResponse {
   targetPaint: { id: string; name: string; hex: string };
   components: RecipeComponent[];
   resultHex: string;
+  distance: number;
   quality: "great" | "approximate";
 }
+
+type SaveState = "idle" | "saving" | "saved";
 
 interface ErrorBody {
   error?: string;
@@ -51,6 +54,7 @@ export default function RecipeGenerator() {
   const [pendingId, setPendingId] = useState<string | null>(null);
   const [recipeError, setRecipeError] = useState<string | null>(null);
   const [recipe, setRecipe] = useState<RecipeResponse | null>(null);
+  const [saveState, setSaveState] = useState<SaveState>("idle");
 
   useEffect(() => {
     let cancelled = false;
@@ -94,6 +98,7 @@ export default function RecipeGenerator() {
   async function handleGenerate(targetPaintId: string) {
     setPendingId(targetPaintId);
     setRecipeError(null);
+    setSaveState("idle");
     try {
       const res = await fetch("/api/recipe", {
         method: "POST",
@@ -109,6 +114,31 @@ export default function RecipeGenerator() {
       setRecipeError(err instanceof Error ? err.message : "Failed to generate recipe");
     } finally {
       setPendingId(null);
+    }
+  }
+
+  async function handleSave() {
+    if (!recipe) return;
+    setSaveState("saving");
+    setRecipeError(null);
+    try {
+      const res = await fetch("/api/recipes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          target_paint_id: recipe.targetPaint.id,
+          components: recipe.components.map((component) => ({ paint_id: component.paintId, parts: component.parts })),
+          result_hex: recipe.resultHex,
+          distance: recipe.distance,
+        }),
+      });
+      if (!res.ok) {
+        throw new Error(await extractError(res, "Failed to save recipe"));
+      }
+      setSaveState("saved");
+    } catch (err) {
+      setRecipeError(err instanceof Error ? err.message : "Failed to save recipe");
+      setSaveState("idle");
     }
   }
 
@@ -245,6 +275,16 @@ export default function RecipeGenerator() {
           </p>
 
           <p className="text-sm text-white">{formatParts(recipe.components)}</p>
+
+          <Button
+            type="button"
+            size="sm"
+            disabled={saveState !== "idle"}
+            onClick={() => void handleSave()}
+            className="bg-purple-600 text-white hover:bg-purple-500"
+          >
+            {saveState === "saved" ? "Saved" : "Save"}
+          </Button>
         </div>
       )}
     </div>
