@@ -3,13 +3,13 @@ project: "10xPaintMixer"
 version: 1
 status: draft
 created: 2026-09-08
-updated: 2026-09-10
+updated: 2026-09-11
 prd_version: 1
 main_goal: low-complexity
 top_blocker: time
 milestone_id: first-mvp-flow
 milestone_seq: 1
-milestone_status: open
+milestone_status: done
 ---
 
 # Roadmap: 10xPaintMixer
@@ -20,7 +20,7 @@ milestone_status: open
 
 ## Milestone
 
-**M-1: Rdzeń MVP — logowanie, lista farb, generowanie przepisu** — Status: open
+**M-1: Rdzeń MVP — logowanie, lista farb, generowanie przepisu** — Status: done
 
 - **Intent:** Dostarczyć kompletny, działający przepływ 10xPaintMixer opisany w PRD: użytkownik zakłada konto, buduje własną listę farb i otrzymuje wygenerowany przepis na docelowy kolor z tego, co faktycznie posiada.
 - **Source materials:** `context/foundation/prd.md` (v1)
@@ -159,7 +159,7 @@ Brak otwartych pytań na poziomie roadmapy — PRD zamknięty bez luk (`quality_
 
 ## Milestone History
 
-(Pusta — to pierwszy milestone.)
+- **M-1: Rdzeń MVP — logowanie, lista farb, generowanie przepisu** (`first-mvp-flow`) — closed 2026-09-11. Kompletny przepływ end-to-end: rejestracja/logowanie, schemat danych farb i kolorów z RLS, dodawanie/przeglądanie/usuwanie farb z listy, generowanie przepisu na docelowy kolor z posiadanych farb.
 
 ## Done
 
