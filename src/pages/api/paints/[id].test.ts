@@ -1,0 +1,33 @@
+import type { APIContext } from "astro";
+import { describe, expect, it, vi } from "vitest";
+import { DELETE } from "./[id]";
+
+vi.mock("astro:env/server", () => ({
+  SUPABASE_URL: "https://test.supabase.co",
+  SUPABASE_KEY: "test-anon-key",
+}));
+
+interface ErrorBody {
+  error?: unknown;
+}
+
+function buildUnauthenticatedContext(): APIContext {
+  const request = new Request("https://example.com/api/paints/irrelevant", { method: "DELETE" });
+
+  return {
+    request,
+    params: { id: "irrelevant" },
+    cookies: { set: () => undefined } as unknown as APIContext["cookies"],
+    locals: { user: null },
+  } as unknown as APIContext;
+}
+
+describe("DELETE /api/paints/[id]", () => {
+  it("returns 401 when unauthenticated", async () => {
+    const response = await DELETE(buildUnauthenticatedContext());
+    expect(response.status).toBe(401);
+    const body = (await response.json()) as ErrorBody;
+    expect(typeof body.error).toBe("string");
+    expect((body.error as string).length).toBeGreaterThan(0);
+  });
+});

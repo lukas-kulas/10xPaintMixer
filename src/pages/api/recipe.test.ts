@@ -59,6 +59,20 @@ function buildContext(body: unknown): APIContext {
   } as unknown as APIContext;
 }
 
+function buildUnauthenticatedContext(body: unknown): APIContext {
+  const request = new Request("https://example.com/api/recipe", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+
+  return {
+    request,
+    cookies: { set: () => undefined } as unknown as APIContext["cookies"],
+    locals: { user: null },
+  } as unknown as APIContext;
+}
+
 async function expectCleanError(response: Response, status: number) {
   expect(response.status).toBe(status);
   const body = (await response.json()) as ErrorBody;
@@ -99,6 +113,10 @@ function mockOwnedPaintsEmpty() {
 }
 
 describe("POST /api/recipe", () => {
+  it("returns 401 when unauthenticated", async () => {
+    await expectCleanError(await POST(buildUnauthenticatedContext({ target_paint_id: TARGET_PAINT_ID })), 401);
+  });
+
   it("returns 400 when target_paint_id is missing", async () => {
     await expectCleanError(await POST(buildContext({})), 400);
   });
