@@ -1,7 +1,7 @@
 ---
 change_id: testing-critical-path-guardrail-coverage
 title: Critical-path guardrail coverage
-status: implementing
+status: implemented
 created: 2026-09-10
 updated: 2026-09-11
 archived_at: null

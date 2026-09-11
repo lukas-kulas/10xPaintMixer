@@ -445,10 +445,10 @@ Not applicable — this phase adds new files only; no existing behavior changes.
 
 #### Automated
 
-- [x] 4.1 `npm run test` (full suite, both projects) passes
-- [x] 4.2 `npm run lint` passes repo-wide
+- [x] 4.1 `npm run test` (full suite, both projects) passes — 219a7a0
+- [x] 4.2 `npm run lint` passes repo-wide — 219a7a0
 
 #### Manual
 
-- [x] 4.3 §6.1 and §6.2 in `context/foundation/test-plan.md` no longer read "TBD"
-- [x] 4.4 The try/catch gap is recorded in `plan-brief.md` Open Risks with a follow-up recommendation
+- [x] 4.3 §6.1 and §6.2 in `context/foundation/test-plan.md` no longer read "TBD" — 219a7a0
+- [x] 4.4 The try/catch gap is recorded in `plan-brief.md` Open Risks with a follow-up recommendation — 219a7a0
