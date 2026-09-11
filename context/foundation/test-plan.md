@@ -68,8 +68,8 @@ orchestrator updates Status as artifacts appear on disk.
 
 | # | Phase name | Goal (one line) | Risks covered | Test types | Status | Change folder |
 |---|---|---|---|---|---|---|
-| 1 | Critical-path guardrail coverage | Bootstrap the test runner and prove the recipe engine/API never violate the owned-paint-only guarantee or crash on edge input | #1, #4, #6 | unit + integration | researched | context/changes/testing-critical-path-guardrail-coverage/ |
-| 2 | Authorization & route-auth wiring | Lock down cross-user access and the self-enforced 401 pattern across all `/api/*` routes | #2, #3 | integration (two seeded users) | not started | — |
+| 1 | Critical-path guardrail coverage | Bootstrap the test runner and prove the recipe engine/API never violate the owned-paint-only guarantee or crash on edge input | #1, #4, #6 | unit + integration | complete | context/changes/testing-critical-path-guardrail-coverage/ |
+| 2 | Authorization & route-auth wiring | Lock down cross-user access and the self-enforced 401 pattern across all `/api/*` routes | #2, #3 | integration (two seeded users) | change opened | context/changes/testing-authorization-route-auth-wiring/ |
 | 3 | Recipe engine regression safety net | Protect the tunable recipe knobs and the NFR timing budget against silent drift | #5 | unit (fixtures) + timing smoke | not started | — |
 | 4 | Quality-gates wiring | Wire the unit/integration suites from Phases 1–3 into CI as required gates (CI today only runs sync + lint + build) | cross-cutting | gates | not started | — |
 
@@ -128,7 +128,15 @@ the relevant rollout phase ships; before that, the sub-section reads
 - **Pattern:** import the route's exported handler (`POST`/`GET`/etc.) directly and invoke it with a constructed `APIContext`-shaped object (`request`, `cookies`, `locals.user`) — do not drive requests through `SELF.fetch()`, which requires a production build first. `astro:env/server` must be mocked (`vi.mock("astro:env/server", () => ({...}))`, declared before the route import so Vitest's hoisting puts it first) since `cloudflareTest()`'s plugin does not include Astro's own Vite/env integration. Mock Supabase's outbound HTTP with `@msw/cloudflare`'s `setupNetwork()` (`network.enable()` in `beforeAll`, `network.resetHandlers()` in `afterEach`, `network.disable()` in `afterAll`; register per-test responses with `network.use(http.get(url, () => HttpResponse.json(...)))`) — never mock the `@/lib/supabase` module itself. Assert status code + that the error field is a non-empty string, never exact wording.
 - **Reference test:** `src/pages/api/recipe.test.ts` — the edge/malformed-input matrix (Risk #4 route-level, Risk #6).
 - **Run:** `npm run test -- --project integration`.
-- **Still TBD:** the two-seeded-user authorization/RLS pattern — see §3 Phase 2.
+
+### 6.2b Adding a two-seeded-user RLS/authorization test
+
+- **Location:** a dedicated file per cross-cutting concern, not co-located with a single route — e.g. `src/pages/api/cross-user-authorization.test.ts`. A reusable harness lives at `src/test-support/rls-harness.ts` (`createTestUser`, `deleteTestUser`, `signInForClient`, `signInForCookieHeader`).
+- **Runner:** the `integration` Vitest project, same as §6.2 — but this suite needs a **real** local Supabase, not `@msw/cloudflare` mocking, since the point is proving RLS itself, not app-level filtering. Requires `npx supabase start` (Docker) running locally.
+- **Config:** `vitest.config.ts` loads `.env.test.local` (gitignored, **not** `.dev.vars` — that file holds this project's cloud dev target) via `process.loadEnvFile`, then forwards `TEST_SUPABASE_URL`/`TEST_SUPABASE_ANON_KEY`/`TEST_SUPABASE_SERVICE_ROLE_KEY` into the `workerd` sandbox as `RLS_TEST_SUPABASE_*` via `miniflare.bindings`, readable as plain `process.env.RLS_TEST_SUPABASE_*` inside the test file. Populate `.env.test.local` from `npx supabase status`'s printed URL/keys. **Do not** import `env`/`SELF` from `cloudflare:test` in this project — it crashes (Durable-Object dispatch requires statically resolving the Astro Cloudflare adapter's virtual main entry-point, which Miniflare's analyzer can't do outside Astro's own build).
+- **Pattern:** create two fresh real users per test file (`beforeAll`), delete them in `afterAll` (cascades to their rows via `on delete cascade` — no manual row cleanup needed). Assert cross-user access is blocked on **two layers**: via the real route handlers with a real authenticated session (hydrate it by setting a `Cookie` header built from `signInForCookieHeader`'s captured `Set-Cookie` values — `src/lib/supabase.ts` reads sessions from the raw `Cookie` request header), and directly against Supabase with `signInForClient` bypassing the app's routes entirely. The direct-DB layer is the one that actually isolates an RLS regression from an app-level-filter regression, since every current route already filters by session `user_id`.
+- **Reference test:** `src/pages/api/cross-user-authorization.test.ts` — the full ownership matrix (select/insert-as/update/delete) for `user_paints` and `recipes` (Risk #3).
+- **Run:** `npm run test -- --project integration cross-user-authorization` (skips cleanly, via `describe.skipIf`, when `.env.test.local` isn't configured — e.g. CI).
 
 ### 6.3 Adding an e2e test
 
@@ -136,7 +144,12 @@ the relevant rollout phase ships; before that, the sub-section reads
 
 ### 6.4 Adding a test for a new API endpoint
 
-- TBD — see §3 Phase 2 (the mandatory self-enforced 401 check every `/api/*` route needs).
+Every `/api/*` route must self-enforce auth — `PROTECTED_ROUTES` in `src/middleware.ts` only guards `/dashboard`, never `/api/*`. For each HTTP method the route exports (except the three auth-flow routes, `signin`/`signup`/`signout`, which are intentionally unguarded):
+
+- Add a check at the top of the handler, before any Supabase call: `const user = context.locals.user; if (!user) return json({ error: "Unauthorized" }, 401);` (no shared helper exists yet — every route hand-repeats this).
+- Add a test asserting exactly this: build an `APIContext` with `locals: { user: null }`, invoke the handler directly, assert `status === 401` and a non-empty string `error` field. No `@msw/cloudflare` mocking is needed for this case — the check returns before any network call, so only the `astro:env/server` mock (per §6.2) is required.
+- **Reference tests:** `src/pages/api/paints.test.ts`, `src/pages/api/paints/[id].test.ts`, and the `"returns 401 when unauthenticated"` case in `src/pages/api/recipe.test.ts` (Risk #2).
+- If the new endpoint reads/writes a per-user table, also extend `src/pages/api/cross-user-authorization.test.ts`'s pattern per §6.2b for the corresponding RLS coverage.
 
 ### 6.5 Adding a fixture-based regression test for the recipe engine
 

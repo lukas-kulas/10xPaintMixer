@@ -421,21 +421,21 @@ Not applicable — no schema changes.
 
 #### Automated
 
-- [x] 3.1 Full integration suite passes: `npm run test -- --project integration`
-- [x] 3.2 Type checking passes: `npx astro sync && npm run lint`
+- [x] 3.1 Full integration suite passes: `npm run test -- --project integration` — b51ef9e
+- [x] 3.2 Type checking passes: `npx astro sync && npm run lint` — b51ef9e
 
 #### Manual
 
-- [x] 3.3 Suite run twice consecutively, no flakiness
-- [x] 3.4 Studio UI inspected post-run, no leftover test users/rows
+- [x] 3.3 Suite run twice consecutively, no flakiness — b51ef9e
+- [x] 3.4 Studio UI inspected post-run, no leftover test users/rows — b51ef9e
 
 ### Phase 4: Cookbook update and doc cleanup
 
 #### Automated
 
-- [ ] 4.1 Lint passes: `npm run lint`
-- [ ] 4.2 Build passes: `npm run build`
+- [x] 4.1 Lint passes: `npm run lint`
+- [x] 4.2 Build passes: `npm run build`
 
 #### Manual
 
-- [ ] 4.3 Cookbook entries verified against the files they reference
+- [x] 4.3 Cookbook entries verified against the files they reference

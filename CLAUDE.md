@@ -9,14 +9,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run preview` — preview the production build
 - `npm run lint` / `npm run lint:fix` — ESLint (type-checked rules; requires `npx astro sync` first if `.astro/types.d.ts` is stale)
 - `npm run format` — Prettier (astro + tailwind-class-sorting plugins)
+- `npm run test` — Vitest (`unit` project: plain-Node, no I/O; `integration` project: real `workerd` via `@cloudflare/vitest-pool-workers`, some suites requiring a running local Supabase — see `context/foundation/test-plan.md` §6)
 
-No test runner is configured in this project.
-
-CI (`.github/workflows/ci.yml`) runs `npx astro sync && npm run lint && npm run build` on push/PR to `master`.
+CI (`.github/workflows/ci.yml`) runs `npx astro sync && npm run lint && npm run build` on push/PR to `master`; the Vitest suites are not yet a required CI gate (`test-plan.md` §3 Phase 4).
 
 ## Architecture
 
-Astro 6 in `output: "server"` mode + React 19 islands, deployed to Cloudflare Workers via `@astrojs/cloudflare`. Supabase provides auth only — no app database tables (see README's Supabase Configuration section for local vs. cloud setup).
+Astro 6 in `output: "server"` mode + React 19 islands, deployed to Cloudflare Workers via `@astrojs/cloudflare`. Supabase provides both auth and app data — `brands`/`paint_types`/`paints` (shared catalog, authenticated-read) plus `user_paints`/`recipes` (per-user, owner-only via Row Level Security: `auth.uid() = user_id`) — see README's Supabase Configuration section for local vs. cloud setup.
 
 - **Server-only Supabase client** (`src/lib/supabase.ts`): built per-request from `astro:env/server` (`SUPABASE_URL`, `SUPABASE_KEY`), declared `optional` in `astro.config.mjs`'s `env.schema`. `createClient()` returns `null` when either var is unset — every caller must handle that case (pattern in `src/pages/api/auth/signin.ts`). Never move these into `astro:env/client`.
 - **Route protection**: `src/middleware.ts` creates the Supabase client per request, resolves `context.locals.user` (typed in `src/env.d.ts`), and redirects to `/auth/signin` for any path matching the `PROTECTED_ROUTES` array. Add new protected paths there rather than checking auth ad hoc inside pages.
