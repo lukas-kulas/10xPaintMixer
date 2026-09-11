@@ -82,8 +82,19 @@ describe.skipIf(!configured)("cross-user authorization (Risk #3)", () => {
   });
 
   afterAll(async () => {
-    await deleteTestUser(supabaseTestEnv, userA.id);
-    await deleteTestUser(supabaseTestEnv, userB.id);
+    // Best-effort cleanup, isolated per user: if beforeAll failed partway (e.g. userB was
+    // never assigned), accessing its `.id` throws — caught here so it can't mask the real
+    // beforeAll failure that already reported the root cause.
+    try {
+      await deleteTestUser(supabaseTestEnv, userA.id);
+    } catch {
+      // swallow — see comment above
+    }
+    try {
+      await deleteTestUser(supabaseTestEnv, userB.id);
+    } catch {
+      // swallow — see comment above
+    }
   });
 
   describe("via real routes", () => {
@@ -103,6 +114,8 @@ describe.skipIf(!configured)("cross-user authorization (Risk #3)", () => {
     });
 
     it("DELETE /api/paints/[id] cannot delete another user's row by supplying their paint_id directly", async () => {
+      // The route always 200s regardless of whether any row matched (delete is filtered by
+      // both user_id and paint_id) — the real security proof is B's row surviving, below.
       const response = await DELETE(buildDeleteContext(cookieHeaderA, userA.id, paintIdY));
       expect(response.status).toBe(200);
 

@@ -22,12 +22,15 @@ function buildUnauthenticatedContext(): APIContext {
   } as unknown as APIContext;
 }
 
+async function expectUnauthorized(response: Response) {
+  expect(response.status).toBe(401);
+  const body = (await response.json()) as ErrorBody;
+  expect(typeof body.error).toBe("string");
+  expect((body.error as string).length).toBeGreaterThan(0);
+}
+
 describe("DELETE /api/paints/[id]", () => {
   it("returns 401 when unauthenticated", async () => {
-    const response = await DELETE(buildUnauthenticatedContext());
-    expect(response.status).toBe(401);
-    const body = (await response.json()) as ErrorBody;
-    expect(typeof body.error).toBe("string");
-    expect((body.error as string).length).toBeGreaterThan(0);
+    await expectUnauthorized(await DELETE(buildUnauthenticatedContext()));
   });
 });
