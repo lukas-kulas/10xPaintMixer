@@ -1,7 +1,7 @@
 ---
 change_id: saved-recipes-with-notes
 title: Saved recipes with notes
-status: implemented
+status: impl_reviewed
 created: 2026-09-11
 updated: 2026-09-11
 archived_at: null

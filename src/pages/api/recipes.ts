@@ -114,12 +114,16 @@ function parseComponents(raw: unknown): ComponentInput[] | null {
   }
   const components: ComponentInput[] = [];
   for (const entry of raw) {
+    if (typeof entry !== "object" || entry === null) {
+      return null;
+    }
+    const parts = (entry as { parts?: unknown }).parts;
     if (
-      typeof entry !== "object" ||
-      entry === null ||
       typeof (entry as { paint_id?: unknown }).paint_id !== "string" ||
       !(entry as { paint_id: string }).paint_id ||
-      typeof (entry as { parts?: unknown }).parts !== "number"
+      typeof parts !== "number" ||
+      !Number.isFinite(parts) ||
+      parts <= 0
     ) {
       return null;
     }
