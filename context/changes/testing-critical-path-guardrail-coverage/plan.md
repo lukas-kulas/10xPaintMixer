@@ -422,24 +422,24 @@ Not applicable — this phase adds new files only; no existing behavior changes.
 
 #### Automated
 
-- [x] 2.1 `npm run test -- --project unit` passes, including the new invariant and guard tests
-- [x] 2.2 `npm run lint` passes on `src/lib/recipe.test.ts`
+- [x] 2.1 `npm run test -- --project unit` passes, including the new invariant and guard tests — 88a39d5
+- [x] 2.2 `npm run lint` passes on `src/lib/recipe.test.ts` — 88a39d5
 
 #### Manual
 
-- [x] 2.3 Temporarily reintroducing a catalog-substitution bug causes the invariant test to fail
+- [x] 2.3 Temporarily reintroducing a catalog-substitution bug causes the invariant test to fail — 88a39d5
 
 ### Phase 3: API route integration tests (Risk #4 route-level, Risk #6)
 
 #### Automated
 
-- [ ] 3.1 `npm run test -- --project integration` passes, covering all five matrix cases
-- [ ] 3.2 `npm run lint` passes on `src/pages/api/recipe.test.ts`
-- [ ] 3.3 `npm run build` still succeeds
+- [x] 3.1 `npm run test -- --project integration` passes, covering all five matrix cases
+- [x] 3.2 `npm run lint` passes on `src/pages/api/recipe.test.ts`
+- [x] 3.3 `npm run build` still succeeds
 
 #### Manual
 
-- [ ] 3.4 Temporarily removing the route's empty-owned-paints pre-check causes the corresponding test to fail differently
+- [x] 3.4 Temporarily removing the route's empty-owned-paints pre-check causes the corresponding test to fail differently
 
 ### Phase 4: Document the try/catch gap; update the cookbook
 
