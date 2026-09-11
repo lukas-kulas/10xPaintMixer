@@ -1,6 +1,6 @@
 import type { APIContext } from "astro";
 import { describe, expect, it, vi } from "vitest";
-import { DELETE } from "./[id]";
+import { DELETE, PATCH } from "./[id]";
 
 vi.mock("astro:env/server", () => ({
   SUPABASE_URL: "https://test.supabase.co",
@@ -13,10 +13,11 @@ interface ErrorBody {
 
 const RECIPE_ID = "22222222-2222-4222-8222-222222222222";
 
-function buildUnauthenticatedContext(method: "DELETE"): APIContext {
+function buildUnauthenticatedContext(method: "DELETE" | "PATCH", body?: unknown): APIContext {
   const request = new Request(`https://example.com/api/recipes/${RECIPE_ID}`, {
     method,
     headers: { "Content-Type": "application/json" },
+    body: method === "PATCH" ? JSON.stringify(body ?? {}) : undefined,
   });
 
   return {
@@ -37,5 +38,11 @@ async function expectUnauthorized(response: Response) {
 describe("DELETE /api/recipes/[id]", () => {
   it("returns 401 when unauthenticated", async () => {
     await expectUnauthorized(await DELETE(buildUnauthenticatedContext("DELETE")));
+  });
+});
+
+describe("PATCH /api/recipes/[id]", () => {
+  it("returns 401 when unauthenticated", async () => {
+    await expectUnauthorized(await PATCH(buildUnauthenticatedContext("PATCH", { notes: "a note" })));
   });
 });

@@ -12,7 +12,7 @@ import {
 import { GET } from "./paints";
 import { DELETE } from "./paints/[id]";
 import { GET as recipesGet } from "./recipes";
-import { DELETE as recipesDelete } from "./recipes/[id]";
+import { DELETE as recipesDelete, PATCH as recipesPatch } from "./recipes/[id]";
 
 // Real local Supabase values, forwarded via vitest.config.ts's miniflare.bindings — see its
 // comment for why this reads process.env directly rather than importing cloudflare:test.
@@ -82,6 +82,19 @@ function buildRecipesDeleteContext(cookieHeader: string, userId: string, recipeI
   } as unknown as APIContext;
 }
 
+function buildRecipesPatchContext(cookieHeader: string, userId: string, recipeId: string, notes: string): APIContext {
+  return {
+    request: new Request(`https://example.com/api/recipes/${recipeId}`, {
+      method: "PATCH",
+      headers: { Cookie: cookieHeader, "Content-Type": "application/json" },
+      body: JSON.stringify({ notes }),
+    }),
+    params: { id: recipeId },
+    cookies: { set: () => undefined } as unknown as APIContext["cookies"],
+    locals: { user: { id: userId } },
+  } as unknown as APIContext;
+}
+
 // Requires a running local Supabase (`npx supabase start`) with RLS_TEST_SUPABASE_* bindings
 // configured — see context/foundation/test-plan.md §6.2. Skips cleanly when absent.
 describe.skipIf(!configured)("cross-user authorization (Risk #3)", () => {
@@ -143,12 +156,11 @@ describe.skipIf(!configured)("cross-user authorization (Risk #3)", () => {
           result_hex: "#123456",
           distance: 0,
         })
-        .select("id")
-        .single();
-      if (error || !data) {
+        .select("id");
+      if (error || data.length === 0) {
         throw new Error(`Failed to seed B's recipe for route tests: ${error?.message ?? "no row returned"}`);
       }
-      recipeIdForB = data.id;
+      [{ id: recipeIdForB }] = data as { id: string }[];
     });
 
     it("GET /api/paints reflects only the caller's own owned paints, never another user's", async () => {
@@ -184,6 +196,18 @@ describe.skipIf(!configured)("cross-user authorization (Risk #3)", () => {
 
       const { data } = await clientB.from("recipes").select("id").eq("id", recipeIdForB);
       expect(data).toHaveLength(1);
+    });
+
+    it("PATCH /api/recipes/[id] cannot edit another user's note by supplying their recipe id directly", async () => {
+      // Same shape again: the route always 200s (filtered by both user_id and id), so
+      // the real proof is B's stored notes surviving unchanged, below.
+      const response = await recipesPatch(
+        buildRecipesPatchContext(cookieHeaderA, userA.id, recipeIdForB, "A was here"),
+      );
+      expect(response.status).toBe(200);
+
+      const { data } = await clientB.from("recipes").select("notes").eq("id", recipeIdForB);
+      expect(data?.[0]?.notes).not.toBe("A was here");
     });
   });
 

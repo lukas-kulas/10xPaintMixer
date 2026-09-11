@@ -514,28 +514,28 @@ decision.
 
 #### Automated
 
-- [x] 2.1 Type checking passes
-- [x] 2.2 Production build succeeds
-- [x] 2.3 Integration test project passes
+- [x] 2.1 Type checking passes — 44d3a40
+- [x] 2.2 Production build succeeds — 44d3a40
+- [x] 2.3 Integration test project passes — 44d3a40
 
 #### Manual
 
-- [x] 2.4 `GET /api/recipes` returns hydrated paint names
-- [x] 2.5 Saving via the endpoint creates exactly one new row with expected shape
-- [x] 2.6 Deleting removes the recipe from a subsequent `GET`
+- [x] 2.4 `GET /api/recipes` returns hydrated paint names — 44d3a40
+- [x] 2.5 Saving via the endpoint creates exactly one new row with expected shape — 44d3a40
+- [x] 2.6 Deleting removes the recipe from a subsequent `GET` — 44d3a40
 
 ### Phase 3: Notes
 
 #### Automated
 
-- [ ] 3.1 Type checking passes
-- [ ] 3.2 Production build succeeds
-- [ ] 3.3 Integration test project passes
+- [x] 3.1 Type checking passes
+- [x] 3.2 Production build succeeds
+- [x] 3.3 Integration test project passes
 
 #### Manual
 
-- [ ] 3.4 PATCHing a note updates it on a subsequent `GET`
-- [ ] 3.5 PATCHing an empty string clears the note
+- [x] 3.4 PATCHing a note updates it on a subsequent `GET`
+- [x] 3.5 PATCHing an empty string clears the note
 
 ### Phase 4: UI — Save button and Saved Recipes page
 
