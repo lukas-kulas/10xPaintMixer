@@ -113,18 +113,6 @@ export const POST: APIRoute = async (context) => {
 
   const recipe = generateRecipe({ r: targetPaint.r, g: targetPaint.g, b: targetPaint.b }, engineInput);
 
-  const { error: insertError } = await supabase.from("recipes").insert({
-    user_id: user.id,
-    target_paint_id: targetPaintId,
-    components: recipe.components.map((component) => ({ paint_id: component.paintId, parts: component.parts })),
-    result_hex: recipe.resultHex,
-    distance: recipe.distance,
-  });
-
-  if (insertError) {
-    return json({ error: insertError.message }, 500);
-  }
-
   return json(
     {
       targetPaint: { id: targetPaint.id, name: targetPaint.name, hex: targetPaint.hex },
@@ -133,6 +121,7 @@ export const POST: APIRoute = async (context) => {
         return { paintId: component.paintId, name: paint?.name ?? "", hex: paint?.hex ?? "", parts: component.parts };
       }),
       resultHex: recipe.resultHex,
+      distance: recipe.distance,
       quality: recipe.quality,
     },
     200,

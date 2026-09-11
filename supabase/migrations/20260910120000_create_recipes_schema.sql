@@ -1,7 +1,8 @@
 -- Recipe history schema (S-04 / generate-color-recipe)
 --
--- Append-only log of generated recipes: one row per generation, owner-only RLS.
--- No `update`/`delete` policies — recipes are never edited or removed in the MVP.
+-- Log of saved recipes, owner-only RLS. Originally append-only ("never edited or
+-- removed"); 20260911100000_add_recipes_notes_and_policies.sql adds a `notes`
+-- column plus owner-scoped update/delete policies (S-01 / saved-recipes-with-notes).
 
 create table recipes (
   id uuid primary key default gen_random_uuid(),

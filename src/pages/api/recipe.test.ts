@@ -112,6 +112,28 @@ function mockOwnedPaintsEmpty() {
   network.use(http.get("https://test.supabase.co/rest/v1/user_paints", () => HttpResponse.json([])));
 }
 
+const OWNED_PAINT_ID = "44444444-4444-4444-8444-444444444444";
+
+function mockOwnedPaintsWithOneEntry() {
+  network.use(
+    http.get("https://test.supabase.co/rest/v1/user_paints", () =>
+      HttpResponse.json([
+        {
+          paints: {
+            id: OWNED_PAINT_ID,
+            name: "Test Blue",
+            hex: "#0000ff",
+            r: 0,
+            g: 0,
+            b: 255,
+            paint_types: { name: "Standard" },
+          },
+        },
+      ]),
+    ),
+  );
+}
+
 describe("POST /api/recipe", () => {
   it("returns 401 when unauthenticated", async () => {
     await expectCleanError(await POST(buildUnauthenticatedContext({ target_paint_id: TARGET_PAINT_ID })), 401);
@@ -147,5 +169,19 @@ describe("POST /api/recipe", () => {
     mockTargetPaintFound();
     mockOwnedPaintsEmpty();
     await expectCleanError(await POST(buildContext({ target_paint_id: TARGET_PAINT_ID })), 422);
+  });
+
+  // Generation is a pure compute-and-return action — no `recipes` insert is issued
+  // anymore (saving is now an explicit client action, see the save endpoint). No
+  // POST handler is mocked for the recipes table, so an unexpected insert attempt
+  // here would hit unmocked network rather than silently succeed.
+  it("returns distance in the response and does not persist a recipe row", async () => {
+    mockTargetPaintFound();
+    mockOwnedPaintsWithOneEntry();
+    const response = await POST(buildContext({ target_paint_id: TARGET_PAINT_ID }));
+    expect(response.status).toBe(200);
+    const body = (await response.json()) as { distance?: unknown; quality?: unknown };
+    expect(typeof body.distance).toBe("number");
+    expect(typeof body.quality).toBe("string");
   });
 });

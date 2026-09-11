@@ -190,13 +190,21 @@ describe.skipIf(!configured)("cross-user authorization (Risk #3)", () => {
       expect(error).not.toBeNull();
     });
 
-    it("nobody, not even the owner, can update a recipe — no policy exists for that operation", async () => {
-      const { data } = await clientB.from("recipes").update({ distance: 1 }).eq("user_id", userB.id).select();
+    it("A cannot update B's recipe", async () => {
+      const { data } = await clientA.from("recipes").update({ distance: 1 }).eq("user_id", userB.id).select();
       expect(data).toEqual([]);
+
+      const { data: stillOwnedByB } = await clientB.from("recipes").select("distance").eq("user_id", userB.id);
+      expect(stillOwnedByB?.some((row) => row.distance === 0)).toBe(true);
     });
 
-    it("nobody, not even the owner, can delete a recipe — no policy exists for that operation", async () => {
-      await clientB.from("recipes").delete().eq("user_id", userB.id);
+    it("B can update their own recipe", async () => {
+      const { data } = await clientB.from("recipes").update({ notes: "my note" }).eq("user_id", userB.id).select();
+      expect(data?.some((row) => row.notes === "my note")).toBe(true);
+    });
+
+    it("A cannot delete B's recipe", async () => {
+      await clientA.from("recipes").delete().eq("user_id", userB.id);
 
       const { data: stillExists } = await clientB.from("recipes").select("id").eq("user_id", userB.id);
       expect(stillExists?.length).toBeGreaterThan(0);
