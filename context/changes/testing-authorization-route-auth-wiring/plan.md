@@ -409,25 +409,25 @@ Not applicable — no schema changes.
 
 #### Automated
 
-- [x] 2.1 Harness smoke test passes: `npm run test -- --project integration rls-harness.smoke`
-- [x] 2.2 Type checking passes: `npx astro sync && npm run lint`
+- [x] 2.1 Harness smoke test passes: `npm run test -- --project integration rls-harness.smoke` — d5c2590
+- [x] 2.2 Type checking passes: `npx astro sync && npm run lint` — d5c2590
 
 #### Manual
 
-- [x] 2.3 Local Supabase running, .dev.vars has SUPABASE_SERVICE_ROLE_KEY, smoke test passes clean
-- [x] 2.4 Smoke test re-run twice with no leftover users/rows
+- [x] 2.3 Local Supabase running, .dev.vars has SUPABASE_SERVICE_ROLE_KEY, smoke test passes clean — d5c2590
+- [x] 2.4 Smoke test re-run twice with no leftover users/rows — d5c2590
 
 ### Phase 3: Two-seeded-user ownership matrix
 
 #### Automated
 
-- [ ] 3.1 Full integration suite passes: `npm run test -- --project integration`
-- [ ] 3.2 Type checking passes: `npx astro sync && npm run lint`
+- [x] 3.1 Full integration suite passes: `npm run test -- --project integration`
+- [x] 3.2 Type checking passes: `npx astro sync && npm run lint`
 
 #### Manual
 
-- [ ] 3.3 Suite run twice consecutively, no flakiness
-- [ ] 3.4 Studio UI inspected post-run, no leftover test users/rows
+- [x] 3.3 Suite run twice consecutively, no flakiness
+- [x] 3.4 Studio UI inspected post-run, no leftover test users/rows
 
 ### Phase 4: Cookbook update and doc cleanup
 
