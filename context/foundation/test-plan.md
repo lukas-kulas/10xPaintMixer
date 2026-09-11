@@ -6,7 +6,7 @@
 >
 > Refresh: re-run `/10x-test-plan --refresh` when stale (see §8).
 >
-> Last updated: 2026-09-10
+> Last updated: 2026-09-11
 
 ## 1. Strategy
 
@@ -69,7 +69,7 @@ orchestrator updates Status as artifacts appear on disk.
 | # | Phase name | Goal (one line) | Risks covered | Test types | Status | Change folder |
 |---|---|---|---|---|---|---|
 | 1 | Critical-path guardrail coverage | Bootstrap the test runner and prove the recipe engine/API never violate the owned-paint-only guarantee or crash on edge input | #1, #4, #6 | unit + integration | complete | context/changes/testing-critical-path-guardrail-coverage/ |
-| 2 | Authorization & route-auth wiring | Lock down cross-user access and the self-enforced 401 pattern across all `/api/*` routes | #2, #3 | integration (two seeded users) | change opened | context/changes/testing-authorization-route-auth-wiring/ |
+| 2 | Authorization & route-auth wiring | Lock down cross-user access and the self-enforced 401 pattern across all `/api/*` routes | #2, #3 | integration (two seeded users) | complete | context/changes/testing-authorization-route-auth-wiring/ |
 | 3 | Recipe engine regression safety net | Protect the tunable recipe knobs and the NFR timing budget against silent drift | #5 | unit (fixtures) + timing smoke | not started | — |
 | 4 | Quality-gates wiring | Wire the unit/integration suites from Phases 1–3 into CI as required gates (CI today only runs sync + lint + build) | cross-cutting | gates | not started | — |
 
