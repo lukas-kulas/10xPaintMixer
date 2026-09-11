@@ -499,30 +499,30 @@ decision.
 
 #### Automated
 
-- [x] 1.1 Migration applies cleanly against local Supabase
-- [x] 1.2 Type checking passes
-- [x] 1.3 Production build succeeds
-- [x] 1.4 Unit test project passes
-- [x] 1.5 Integration test project passes
+- [x] 1.1 Migration applies cleanly against local Supabase — 37e4489
+- [x] 1.2 Type checking passes — 37e4489
+- [x] 1.3 Production build succeeds — 37e4489
+- [x] 1.4 Unit test project passes — 37e4489
+- [x] 1.5 Integration test project passes — 37e4489
 
 #### Manual
 
-- [x] 1.6 Generating a recipe no longer inserts a row
-- [x] 1.7 New `notes` column and update/delete policies visible in Supabase Studio
+- [x] 1.6 Generating a recipe no longer inserts a row — 37e4489
+- [x] 1.7 New `notes` column and update/delete policies visible in Supabase Studio — 37e4489
 
 ### Phase 2: Save, list, and delete saved recipes
 
 #### Automated
 
-- [ ] 2.1 Type checking passes
-- [ ] 2.2 Production build succeeds
-- [ ] 2.3 Integration test project passes
+- [x] 2.1 Type checking passes
+- [x] 2.2 Production build succeeds
+- [x] 2.3 Integration test project passes
 
 #### Manual
 
-- [ ] 2.4 `GET /api/recipes` returns hydrated paint names
-- [ ] 2.5 Saving via the endpoint creates exactly one new row with expected shape
-- [ ] 2.6 Deleting removes the recipe from a subsequent `GET`
+- [x] 2.4 `GET /api/recipes` returns hydrated paint names
+- [x] 2.5 Saving via the endpoint creates exactly one new row with expected shape
+- [x] 2.6 Deleting removes the recipe from a subsequent `GET`
 
 ### Phase 3: Notes
 

@@ -11,6 +11,8 @@ import {
 } from "@/test-support/rls-harness";
 import { GET } from "./paints";
 import { DELETE } from "./paints/[id]";
+import { GET as recipesGet } from "./recipes";
+import { DELETE as recipesDelete } from "./recipes/[id]";
 
 // Real local Supabase values, forwarded via vitest.config.ts's miniflare.bindings — see its
 // comment for why this reads process.env directly rather than importing cloudflare:test.
@@ -36,6 +38,10 @@ interface PaintListEntry {
   owned: boolean;
 }
 
+interface RecipeListEntry {
+  id: string;
+}
+
 function buildGetContext(cookieHeader: string, userId: string): APIContext {
   return {
     request: new Request("https://example.com/api/paints", { method: "GET", headers: { Cookie: cookieHeader } }),
@@ -51,6 +57,26 @@ function buildDeleteContext(cookieHeader: string, userId: string, paintId: strin
       headers: { Cookie: cookieHeader },
     }),
     params: { id: paintId },
+    cookies: { set: () => undefined } as unknown as APIContext["cookies"],
+    locals: { user: { id: userId } },
+  } as unknown as APIContext;
+}
+
+function buildRecipesGetContext(cookieHeader: string, userId: string): APIContext {
+  return {
+    request: new Request("https://example.com/api/recipes", { method: "GET", headers: { Cookie: cookieHeader } }),
+    cookies: { set: () => undefined } as unknown as APIContext["cookies"],
+    locals: { user: { id: userId } },
+  } as unknown as APIContext;
+}
+
+function buildRecipesDeleteContext(cookieHeader: string, userId: string, recipeId: string): APIContext {
+  return {
+    request: new Request(`https://example.com/api/recipes/${recipeId}`, {
+      method: "DELETE",
+      headers: { Cookie: cookieHeader },
+    }),
+    params: { id: recipeId },
     cookies: { set: () => undefined } as unknown as APIContext["cookies"],
     locals: { user: { id: userId } },
   } as unknown as APIContext;
@@ -98,11 +124,31 @@ describe.skipIf(!configured)("cross-user authorization (Risk #3)", () => {
   });
 
   describe("via real routes", () => {
+    let recipeIdForB: string;
+
     beforeAll(async () => {
       const { error } = await clientB.from("user_paints").insert({ user_id: userB.id, paint_id: paintIdY });
       if (error) {
         throw new Error(`Failed to seed B's owned paint: ${error.message}`);
       }
+    });
+
+    beforeAll(async () => {
+      const { data, error } = await clientB
+        .from("recipes")
+        .insert({
+          user_id: userB.id,
+          target_paint_id: paintIdX,
+          components: [{ paint_id: paintIdY, parts: 1 }],
+          result_hex: "#123456",
+          distance: 0,
+        })
+        .select("id")
+        .single();
+      if (error || !data) {
+        throw new Error(`Failed to seed B's recipe for route tests: ${error?.message ?? "no row returned"}`);
+      }
+      recipeIdForB = data.id;
     });
 
     it("GET /api/paints reflects only the caller's own owned paints, never another user's", async () => {
@@ -120,6 +166,23 @@ describe.skipIf(!configured)("cross-user authorization (Risk #3)", () => {
       expect(response.status).toBe(200);
 
       const { data } = await clientB.from("user_paints").select("paint_id").eq("paint_id", paintIdY);
+      expect(data).toHaveLength(1);
+    });
+
+    it("GET /api/recipes reflects only the caller's own saved recipes, never another user's", async () => {
+      const response = await recipesGet(buildRecipesGetContext(cookieHeaderA, userA.id));
+      expect(response.status).toBe(200);
+      const body = (await response.json()) as RecipeListEntry[];
+      expect(body.some((recipe) => recipe.id === recipeIdForB)).toBe(false);
+    });
+
+    it("DELETE /api/recipes/[id] cannot delete another user's row by supplying their recipe id directly", async () => {
+      // Same shape as the paints case above: the route always 200s (filtered by both
+      // user_id and id), so the real proof is B's row surviving, below.
+      const response = await recipesDelete(buildRecipesDeleteContext(cookieHeaderA, userA.id, recipeIdForB));
+      expect(response.status).toBe(200);
+
+      const { data } = await clientB.from("recipes").select("id").eq("id", recipeIdForB);
       expect(data).toHaveLength(1);
     });
   });
