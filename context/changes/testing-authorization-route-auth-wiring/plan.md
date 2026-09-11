@@ -398,24 +398,24 @@ Not applicable — no schema changes.
 
 #### Automated
 
-- [x] 1.1 Integration tests pass: `npm run test -- --project integration`
-- [x] 1.2 Type checking passes: `npx astro sync && npm run lint`
+- [x] 1.1 Integration tests pass: `npm run test -- --project integration` — 26317a2
+- [x] 1.2 Type checking passes: `npx astro sync && npm run lint` — 26317a2
 
 #### Manual
 
-- [x] 1.3 No regression in recipe.test.ts's existing five test cases
+- [x] 1.3 No regression in recipe.test.ts's existing five test cases — 26317a2
 
 ### Phase 2: Real-Postgres RLS test harness
 
 #### Automated
 
-- [ ] 2.1 Harness smoke test passes: `npm run test -- --project integration rls-harness.smoke`
-- [ ] 2.2 Type checking passes: `npx astro sync && npm run lint`
+- [x] 2.1 Harness smoke test passes: `npm run test -- --project integration rls-harness.smoke`
+- [x] 2.2 Type checking passes: `npx astro sync && npm run lint`
 
 #### Manual
 
-- [ ] 2.3 Local Supabase running, .dev.vars has SUPABASE_SERVICE_ROLE_KEY, smoke test passes clean
-- [ ] 2.4 Smoke test re-run twice with no leftover users/rows
+- [x] 2.3 Local Supabase running, .dev.vars has SUPABASE_SERVICE_ROLE_KEY, smoke test passes clean
+- [x] 2.4 Smoke test re-run twice with no leftover users/rows
 
 ### Phase 3: Two-seeded-user ownership matrix
 
