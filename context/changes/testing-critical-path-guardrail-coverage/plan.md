@@ -409,25 +409,25 @@ Not applicable — this phase adds new files only; no existing behavior changes.
 
 #### Automated
 
-- [x] 1.1 `npx astro sync` still succeeds
-- [x] 1.2 `npm run test` runs and the smoke test passes
-- [x] 1.3 `npm run lint` passes on the new files
-- [x] 1.4 `npm run build` still succeeds
+- [x] 1.1 `npx astro sync` still succeeds — 910525c
+- [x] 1.2 `npm run test` runs and the smoke test passes — 910525c
+- [x] 1.3 `npm run lint` passes on the new files — 910525c
+- [x] 1.4 `npm run build` still succeeds — 910525c
 
 #### Manual
 
-- [x] 1.5 `npm run test` output shows two distinct projects (`unit`, `integration`) running
+- [x] 1.5 `npm run test` output shows two distinct projects (`unit`, `integration`) running — 910525c
 
 ### Phase 2: Recipe engine unit tests (Risk #1, Risk #4 defense-in-depth)
 
 #### Automated
 
-- [ ] 2.1 `npm run test -- --project unit` passes, including the new invariant and guard tests
-- [ ] 2.2 `npm run lint` passes on `src/lib/recipe.test.ts`
+- [x] 2.1 `npm run test -- --project unit` passes, including the new invariant and guard tests
+- [x] 2.2 `npm run lint` passes on `src/lib/recipe.test.ts`
 
 #### Manual
 
-- [ ] 2.3 Temporarily reintroducing a catalog-substitution bug causes the invariant test to fail
+- [x] 2.3 Temporarily reintroducing a catalog-substitution bug causes the invariant test to fail
 
 ### Phase 3: API route integration tests (Risk #4 route-level, Risk #6)
 
