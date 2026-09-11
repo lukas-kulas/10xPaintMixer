@@ -541,14 +541,14 @@ decision.
 
 #### Automated
 
-- [x] 4.1 Type checking passes
-- [x] 4.2 Production build succeeds
-- [x] 4.3 Full test suite passes
+- [x] 4.1 Type checking passes — 761bc31
+- [x] 4.2 Production build succeeds — 761bc31
+- [x] 4.3 Full test suite passes — 761bc31
 
 #### Manual
 
-- [x] 4.4 Save button shows "Saved" and disables; resets on new generation
-- [x] 4.5 Saved Recipes tab shows the just-saved recipe with correct details
-- [x] 4.6 Note add/edit persists across refresh
-- [x] 4.7 Delete removes the recipe from the list
-- [x] 4.8 An un-saved generated recipe never appears on the list
+- [x] 4.4 Save button shows "Saved" and disables; resets on new generation — 761bc31
+- [x] 4.5 Saved Recipes tab shows the just-saved recipe with correct details — 761bc31
+- [x] 4.6 Note add/edit persists across refresh — 761bc31
+- [x] 4.7 Delete removes the recipe from the list — 761bc31
+- [x] 4.8 An un-saved generated recipe never appears on the list — 761bc31
