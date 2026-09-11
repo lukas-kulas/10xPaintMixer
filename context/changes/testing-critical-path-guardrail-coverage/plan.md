@@ -433,22 +433,22 @@ Not applicable — this phase adds new files only; no existing behavior changes.
 
 #### Automated
 
-- [x] 3.1 `npm run test -- --project integration` passes, covering all five matrix cases
-- [x] 3.2 `npm run lint` passes on `src/pages/api/recipe.test.ts`
-- [x] 3.3 `npm run build` still succeeds
+- [x] 3.1 `npm run test -- --project integration` passes, covering all five matrix cases — 524504e
+- [x] 3.2 `npm run lint` passes on `src/pages/api/recipe.test.ts` — 524504e
+- [x] 3.3 `npm run build` still succeeds — 524504e
 
 #### Manual
 
-- [x] 3.4 Temporarily removing the route's empty-owned-paints pre-check causes the corresponding test to fail differently
+- [x] 3.4 Temporarily removing the route's empty-owned-paints pre-check causes the corresponding test to fail differently — 524504e
 
 ### Phase 4: Document the try/catch gap; update the cookbook
 
 #### Automated
 
-- [ ] 4.1 `npm run test` (full suite, both projects) passes
-- [ ] 4.2 `npm run lint` passes repo-wide
+- [x] 4.1 `npm run test` (full suite, both projects) passes
+- [x] 4.2 `npm run lint` passes repo-wide
 
 #### Manual
 
-- [ ] 4.3 §6.1 and §6.2 in `context/foundation/test-plan.md` no longer read "TBD"
-- [ ] 4.4 The try/catch gap is recorded in `plan-brief.md` Open Risks with a follow-up recommendation
+- [x] 4.3 §6.1 and §6.2 in `context/foundation/test-plan.md` no longer read "TBD"
+- [x] 4.4 The try/catch gap is recorded in `plan-brief.md` Open Risks with a follow-up recommendation

@@ -85,6 +85,10 @@ mocked and Supabase's outbound HTTP is intercepted with `fetchMock`.
   the insert in try/catch, translating any thrown error into the same
   `{ error: string }` shape. This is a code fix, not a test-rollout task, so it's
   explicitly out of scope for this plan.
+  **Empirically confirmed during Phase 3:** temporarily removing the route's
+  empty-owned-paints pre-check (as the manual verification step) reproduced
+  this exact gap live — the request failed with an uncaught
+  `EmptyOwnedPaintsError` rather than any HTTP response.
 - `@cloudflare/vitest-pool-workers` has no stable pinned release as of this
   plan's Context7 grounding (only a beta/`main`-branch install path was
   documented) — the implementer should check for a stable release at
