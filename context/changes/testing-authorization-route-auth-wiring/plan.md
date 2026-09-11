@@ -433,9 +433,9 @@ Not applicable — no schema changes.
 
 #### Automated
 
-- [x] 4.1 Lint passes: `npm run lint`
-- [x] 4.2 Build passes: `npm run build`
+- [x] 4.1 Lint passes: `npm run lint` — 67f0b5e
+- [x] 4.2 Build passes: `npm run build` — 67f0b5e
 
 #### Manual
 
-- [x] 4.3 Cookbook entries verified against the files they reference
+- [x] 4.3 Cookbook entries verified against the files they reference — 67f0b5e

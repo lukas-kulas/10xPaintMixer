@@ -1,7 +1,7 @@
 ---
 change_id: testing-authorization-route-auth-wiring
 title: Authorization & route-auth wiring
-status: implementing
+status: implemented
 created: 2026-09-11
 updated: 2026-09-11
 archived_at: null
