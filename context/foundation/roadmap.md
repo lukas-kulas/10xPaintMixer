@@ -3,7 +3,7 @@ project: "10xPaintMixer"
 version: 1
 status: draft
 created: 2026-09-08
-updated: 2026-09-09
+updated: 2026-09-10
 prd_version: 1
 main_goal: low-complexity
 top_blocker: time
@@ -43,8 +43,8 @@ Hobbysta wargamingu/modelarstwa figurek ma ograniczoną fizycznie paletę farb i
 | F-01 | paint-color-data-schema  | (foundation) schemat danych: katalog farb, katalog kolorów, lista posiadanych farb z RLS | —              | FR-002, FR-003, FR-004, FR-005 | done |
 | S-01 | user-signup-signin       | założyć konto i zalogować się (email + hasło)                      | —              | FR-001                | done |
 | S-02 | add-paint-to-list        | dodać farbę do swojej listy z bazy dostępnych farb                 | F-01, S-01     | FR-002                | done |
-| S-03 | view-and-remove-paints   | przeglądać i usuwać farby ze swojej listy                          | F-01, S-02     | FR-003, FR-004        | proposed |
-| S-04 | generate-color-recipe    | wybrać docelowy kolor i otrzymać przepis na jego zmieszanie z posiadanych farb | F-01, S-02     | FR-005, US-01          | proposed |
+| S-03 | view-and-remove-paints   | przeglądać i usuwać farby ze swojej listy                          | F-01, S-02     | FR-003, FR-004        | done |
+| S-04 | generate-color-recipe    | wybrać docelowy kolor i otrzymać przepis na jego zmieszanie z posiadanych farb | F-01, S-02     | FR-005, US-01          | done |
 
 ## Streams
 
@@ -120,7 +120,7 @@ Foundations poniżej zakładają, że to jest obecne i NIE scaffoldują tego pon
 - **Unknowns:**
   - Czy usunięcie farby wymaga dialogu potwierdzającego? — Owner: user. Block: no (decyzja projektowa/implementacyjna downstream, per notatka Sokratejska w PRD przy FR-004).
 - **Risk:** Zgrupowane w jeden slice (widok + usuwanie), bo dotyczą tego samego bytu i typowo rozwijane razem; usuwanie bez uprzedniego dodawania (S-02) nie miałoby sensownego stanu do przetestowania.
-- **Status:** proposed
+- **Status:** done
 
 ### S-04: Generowanie przepisu na docelowy kolor
 
@@ -133,7 +133,7 @@ Foundations poniżej zakładają, że to jest obecne i NIE scaffoldują tego pon
 - **Unknowns:**
   - Jaki model mieszania kolorów/pigmentów zostanie użyty (np. proste uśrednianie RGB vs. model pigmentowy) i jakie atrybuty musi mieć każda farba/kolor w bazie? — Owner: team. Block: no (decyzja implementacyjna do rozstrzygnięcia w `/10x-plan`, nie blokuje sekwencjonowania roadmapy).
 - **Risk:** To rdzeń hipotezy produktu (kryterium sukcesu: 75% akceptacji) — najbardziej złożona logika biznesowa w MVP, celowo zsekwencjonowana po S-02, żeby mieć realne dane farb do testowania algorytmu zamiast danych fikcyjnych.
-- **Status:** proposed
+- **Status:** done
 
 ## Backlog Handoff
 
@@ -165,6 +165,9 @@ Brak otwartych pytań na poziomie roadmapy — PRD zamknięty bez luk (`quality_
 
 (Pusta na pierwszej generacji. `/10x-archive` doda tu wpis — i przełączy Status danego elementu na `done` — gdy zmiana o pasującym Change ID zostanie zarchiwizowana.)
 
+- **S-04: użytkownik wybiera docelowy kolor z bazy dostępnych kolorów i otrzymuje wygenerowany przepis na jego zmieszanie z posiadanych farb.** — Archived 2026-09-10 → `context/archive/2026-09-10-generate-color-recipe/`. Lesson: —.
+
 - **S-01: użytkownik może założyć konto i zalogować się (email + hasło)** — Archived 2026-09-08 → `context/archive/2026-09-08-user-signup-signin/`. Lesson: —.
 - **F-01: (foundation) Supabase ma schemat: katalog referencyjny farb, katalog referencyjny docelowych kolorów oraz tabelę farb posiadanych przez użytkownika, ograniczoną RLS do właściciela; oba katalogi zasiane danymi startowymi.** — Archived 2026-09-09 → `context/archive/2026-09-09-paint-color-data-schema/`. Lesson: —.
+- **S-03: użytkownik może przeglądać swoją listę posiadanych farb oraz usunąć z niej farbę.** — Archived 2026-09-10 → `context/archive/2026-09-10-view-and-remove-paints/`. Lesson: —.
 - **S-02: użytkownik może dodać farbę do swojej listy, wybierając z bazy dostępnych farb.** — Archived 2026-09-09 → `context/archive/2026-09-09-add-paint-to-list/`. Lesson: —.
