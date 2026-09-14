@@ -65,7 +65,7 @@ end-to-end.
 | ID   | Change ID                | Outcome (user can …)                                                                    | Prerequisites | PRD refs | Status |
 | ---- | ------------------------- | ----------------------------------------------------------------------------------------- | -------------- | -------- | ------ |
 | S-01 | saved-recipes-with-notes  | zapisać wygenerowany przepis, zobaczyć go na liście zapisanych przepisów, usunąć go oraz dodać/edytować notatkę | —              | US-01    | done  |
-| S-02 | starter-branding-cleanup  | zobaczyć poprawną nazwę, opis aplikacji (10xPaintMixer) i wskazówkę na dashboardzie zamiast zalegającego tekstu ze startera Astro | —              | MS-01, MS-03 | ready  |
+| S-02 | starter-branding-cleanup  | zobaczyć poprawną nazwę, opis aplikacji (10xPaintMixer) i wskazówkę na dashboardzie zamiast zalegającego tekstu ze startera Astro | —              | MS-01, MS-03 | in-progress  |
 | S-03 | post-signin-dashboard-redirect | zostać przeniesionym na dashboard od razu po poprawnym zalogowaniu | —              | MS-02    | done  |
 
 ## Baseline
@@ -127,7 +127,7 @@ Baseline powyżej) — nie ma tu cross-cuttingowego elementu, który blokowałby
   powitalnego, komunikat na dashboardzie) — niskie ryzyko techniczne; jedyne ryzyko to
   przeoczenie innego miejsca, gdzie tekst startera nadal występuje (np. README, meta tagi),
   co `/10x-plan` powinien zweryfikować.
-- **Status:** ready
+- **Status:** in-progress
 
 ### S-03: Przekierowanie na dashboard po zalogowaniu
 
