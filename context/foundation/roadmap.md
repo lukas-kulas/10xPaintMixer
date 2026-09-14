@@ -66,7 +66,7 @@ end-to-end.
 | ---- | ------------------------- | ----------------------------------------------------------------------------------------- | -------------- | -------- | ------ |
 | S-01 | saved-recipes-with-notes  | zapisać wygenerowany przepis, zobaczyć go na liście zapisanych przepisów, usunąć go oraz dodać/edytować notatkę | —              | US-01    | done  |
 | S-02 | starter-branding-cleanup  | zobaczyć poprawną nazwę, opis aplikacji (10xPaintMixer) i wskazówkę na dashboardzie zamiast zalegającego tekstu ze startera Astro | —              | MS-01, MS-03 | ready  |
-| S-03 | post-signin-dashboard-redirect | zostać przeniesionym na dashboard od razu po poprawnym zalogowaniu | —              | MS-02    | in-progress  |
+| S-03 | post-signin-dashboard-redirect | zostać przeniesionym na dashboard od razu po poprawnym zalogowaniu | —              | MS-02    | done  |
 
 ## Baseline
 
@@ -142,7 +142,7 @@ Baseline powyżej) — nie ma tu cross-cuttingowego elementu, który blokowałby
 - **Risk:** Zmiana jednej ścieżki przekierowania w istniejącym route'cie logowania — niskie
   ryzyko, ale wymaga sprawdzenia, czy strona główna ("/") pełni dziś jakąś inną rolę dla
   zalogowanych użytkowników, zanim przekierowanie zostanie zmienione na dashboard.
-- **Status:** in-progress
+- **Status:** done
 
 ## Backlog Handoff
 
@@ -178,3 +178,4 @@ Status danego elementu na `done` — gdy zmiana o pasującym Change ID zostanie
 zarchiwizowana.)
 
 - **S-01: zapisać wygenerowany przepis, zobaczyć go na liście zapisanych przepisów, usunąć go oraz dodać/edytować notatkę** — Archived 2026-09-14 → `context/archive/2026-09-11-saved-recipes-with-notes/`. Lesson: —.
+- **S-03: użytkownik po poprawnym zalogowaniu trafia bezpośrednio na dashboard, a nie na stronę główną** — Archived 2026-09-14 → `context/archive/2026-09-14-post-signin-dashboard-redirect/`. Lesson: —.
