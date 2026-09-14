@@ -3,7 +3,7 @@ project: "10xPaintMixer"
 version: 1
 status: draft
 created: 2026-09-08
-updated: 2026-09-11
+updated: 2026-09-14
 prd_version: 2
 main_goal: low-complexity
 top_blocker: time
@@ -25,9 +25,20 @@ milestone_status: open
 - **Intent:** Umożliwić użytkownikowi trwałe zapisanie wygenerowanego przepisu,
   przeglądanie listy zapisanych przepisów oraz zarządzanie nimi (usuwanie, notatki), przy
   zachowaniu pełnej prywatności i bez regresji istniejącego przepływu generowania z M-1.
-- **Source materials:** `context/foundation/prd-v2.md` (v2)
-- **Done when:** S-01 poniżej ma Status: `done`.
+  Zakres rozszerzony 2026-09-14 o trzy drobne poprawki zgłoszone przez użytkownika
+  (branding aplikacji, tekst na dashboardzie i przekierowanie po logowaniu) — patrz kotwice
+  MS-01, MS-02, MS-03 poniżej.
+- **Source materials:** `context/foundation/prd-v2.md` (v2); opis użytkownika 2026-09-14 (MS-01, MS-02, MS-03)
+- **Done when:** S-01, S-02 i S-03 poniżej mają Status: `done`.
 - **Scope anchors:** US-01; Scope of Change (4×`[new]`, 1×`[modified]`, 1×`[preserved]`)
+  - MS-01: Zamienić placeholderowy branding startera ("10x Astro Starter" / opis
+    "A production-ready starter with authentication, modern tooling, and a cosmic developer
+    experience.") na właściwy branding produktu ("10xPaintMixer" / "Easy way to mix new
+    colors from old paints").
+  - MS-02: Po poprawnym zalogowaniu użytkownik ma trafiać na dashboard, nie na stronę główną.
+  - MS-03: Zamienić tekst na dashboardzie "This page is only for authenticated users." na
+    wskazówkę dot. przepływu produktu: "first create list of your paints, next generate
+    recipe".
 
 ## Vision recap
 
@@ -54,6 +65,8 @@ end-to-end.
 | ID   | Change ID                | Outcome (user can …)                                                                    | Prerequisites | PRD refs | Status |
 | ---- | ------------------------- | ----------------------------------------------------------------------------------------- | -------------- | -------- | ------ |
 | S-01 | saved-recipes-with-notes  | zapisać wygenerowany przepis, zobaczyć go na liście zapisanych przepisów, usunąć go oraz dodać/edytować notatkę | —              | US-01    | in-progress  |
+| S-02 | starter-branding-cleanup  | zobaczyć poprawną nazwę, opis aplikacji (10xPaintMixer) i wskazówkę na dashboardzie zamiast zalegającego tekstu ze startera Astro | —              | MS-01, MS-03 | ready  |
+| S-03 | post-signin-dashboard-redirect | zostać przeniesionym na dashboard od razu po poprawnym zalogowaniu | —              | MS-02    | in-progress  |
 
 ## Baseline
 
@@ -87,7 +100,7 @@ Baseline powyżej) — nie ma tu cross-cuttingowego elementu, który blokowałby
 - **Change ID:** saved-recipes-with-notes
 - **PRD refs:** US-01
 - **Prerequisites:** — (wszystkie potrzebne warstwy już obecne w kodzie, patrz Baseline)
-- **Parallel with:** —
+- **Parallel with:** S-02, S-03
 - **Blockers:** —
 - **Unknowns:** — (PRD v2 nie ma otwartych pytań — `quality_check_status: accepted`)
 - **Risk:** To jeden, ściśle powiązany przepływ (zapisz → lista → usuń/notatka), opisany
@@ -96,16 +109,54 @@ Baseline powyżej) — nie ma tu cross-cuttingowego elementu, który blokowałby
   nie daje nic do usunięcia ani do opisania notatką).
 - **Status:** in-progress
 
+### S-02: Poprawny branding aplikacji
+
+- **Outcome:** użytkownik widzi nazwę "10xPaintMixer" i opis "Easy way to mix new colors
+  from old paints" zamiast placeholderowego tekstu ze startera Astro ("10x Astro Starter" /
+  "A production-ready starter with authentication, modern tooling, and a cosmic developer
+  experience."), a na dashboardzie zamiast "This page is only for authenticated users."
+  widzi wskazówkę co do przepływu produktu ("first create list of your paints, next
+  generate recipe").
+- **Change ID:** starter-branding-cleanup
+- **PRD refs:** MS-01, MS-03
+- **Prerequisites:** —
+- **Parallel with:** S-01, S-03
+- **Blockers:** —
+- **Unknowns:** —
+- **Risk:** Czysto tekstowa zmiana w trzech miejscach (tytuł strony, treść komponentu
+  powitalnego, komunikat na dashboardzie) — niskie ryzyko techniczne; jedyne ryzyko to
+  przeoczenie innego miejsca, gdzie tekst startera nadal występuje (np. README, meta tagi),
+  co `/10x-plan` powinien zweryfikować.
+- **Status:** ready
+
+### S-03: Przekierowanie na dashboard po zalogowaniu
+
+- **Outcome:** użytkownik po poprawnym zalogowaniu trafia bezpośrednio na dashboard, a nie
+  na stronę główną.
+- **Change ID:** post-signin-dashboard-redirect
+- **PRD refs:** MS-02
+- **Prerequisites:** —
+- **Parallel with:** S-01, S-02
+- **Blockers:** —
+- **Unknowns:** —
+- **Risk:** Zmiana jednej ścieżki przekierowania w istniejącym route'cie logowania — niskie
+  ryzyko, ale wymaga sprawdzenia, czy strona główna ("/") pełni dziś jakąś inną rolę dla
+  zalogowanych użytkowników, zanim przekierowanie zostanie zmienione na dashboard.
+- **Status:** in-progress
+
 ## Backlog Handoff
 
 | Roadmap ID | Change ID                | Suggested issue title                                                  | Ready for `/10x-plan` | Notes |
 | ---------- | ------------------------- | -------------------------------------------------------------------------- | ---------------------- | ----- |
 | S-01       | saved-recipes-with-notes  | Zapisywanie, przeglądanie i zarządzanie zapisanymi przepisami (usuwanie, notatki) | yes                     | Run `/10x-plan saved-recipes-with-notes` |
+| S-02       | starter-branding-cleanup  | Poprawny branding aplikacji (nazwa, opis, wskazówka na dashboardzie) zamiast tekstu ze startera | yes                     | Run `/10x-plan starter-branding-cleanup` |
+| S-03       | post-signin-dashboard-redirect | Przekierowanie na dashboard po poprawnym zalogowaniu | yes                     | Run `/10x-plan post-signin-dashboard-redirect` |
 
 ## Open Roadmap Questions
 
 Brak otwartych pytań na poziomie roadmapy — PRD v2 zamknięty bez luk
-(`quality_check_status: accepted`, zapisane w `shape-notes.md`).
+(`quality_check_status: accepted`, zapisane w `shape-notes.md`). S-02 i S-03 pochodzą z
+opisu użytkownika (MS-01, MS-02, MS-03 w karcie milestone'u), nie z PRD.
 
 ## Parked
 
