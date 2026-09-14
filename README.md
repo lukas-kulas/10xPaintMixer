@@ -1,8 +1,8 @@
-# 10x Astro Starter
+# 10xPaintMixer
 
 ![](./public/template.png)
 
-A modern, opinionated starter template for building fast, accessible web applications.
+Easy way to mix new colors from old paints.
 
 ## Tech Stack
 
