@@ -64,7 +64,7 @@ end-to-end.
 
 | ID   | Change ID                | Outcome (user can …)                                                                    | Prerequisites | PRD refs | Status |
 | ---- | ------------------------- | ----------------------------------------------------------------------------------------- | -------------- | -------- | ------ |
-| S-01 | saved-recipes-with-notes  | zapisać wygenerowany przepis, zobaczyć go na liście zapisanych przepisów, usunąć go oraz dodać/edytować notatkę | —              | US-01    | in-progress  |
+| S-01 | saved-recipes-with-notes  | zapisać wygenerowany przepis, zobaczyć go na liście zapisanych przepisów, usunąć go oraz dodać/edytować notatkę | —              | US-01    | done  |
 | S-02 | starter-branding-cleanup  | zobaczyć poprawną nazwę, opis aplikacji (10xPaintMixer) i wskazówkę na dashboardzie zamiast zalegającego tekstu ze startera Astro | —              | MS-01, MS-03 | ready  |
 | S-03 | post-signin-dashboard-redirect | zostać przeniesionym na dashboard od razu po poprawnym zalogowaniu | —              | MS-02    | in-progress  |
 
@@ -107,7 +107,7 @@ Baseline powyżej) — nie ma tu cross-cuttingowego elementu, który blokowałby
   w PRD jako pojedyncza historia z jednym kryterium sukcesu end-to-end — sztuczny podział
   na mniejsze kawałki nie miałby sensownego stanu do przetestowania (lista bez elementów
   nie daje nic do usunięcia ani do opisania notatką).
-- **Status:** in-progress
+- **Status:** done
 
 ### S-02: Poprawny branding aplikacji
 
@@ -176,3 +176,5 @@ opisu użytkownika (MS-01, MS-02, MS-03 w karcie milestone'u), nie z PRD.
 (Pusta na pierwszej generacji tego milestone'u. `/10x-archive` doda tu wpis — i przełączy
 Status danego elementu na `done` — gdy zmiana o pasującym Change ID zostanie
 zarchiwizowana.)
+
+- **S-01: zapisać wygenerowany przepis, zobaczyć go na liście zapisanych przepisów, usunąć go oraz dodać/edytować notatkę** — Archived 2026-09-14 → `context/archive/2026-09-11-saved-recipes-with-notes/`. Lesson: —.
