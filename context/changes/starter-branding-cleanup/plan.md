@@ -304,9 +304,9 @@ None — no data model or schema changes.
 
 #### Automated
 
-- [x] 2.1 Repo-wide grep for starter strings returns zero matches
-- [x] 2.2 `.scaffold` siblings untouched
+- [x] 2.1 Repo-wide grep for starter strings returns zero matches — 37b419d
+- [x] 2.2 `.scaffold` siblings untouched — 37b419d
 
 #### Manual
 
-- [x] 2.3 Diff skim confirms no unrelated text changes crept in
+- [x] 2.3 Diff skim confirms no unrelated text changes crept in — 37b419d
