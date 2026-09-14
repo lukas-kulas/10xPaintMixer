@@ -23,8 +23,8 @@ Easy way to mix new colors from old paints.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/przeprogramowani/10x-astro-starter.git
-cd 10x-astro-starter
+git clone https://github.com/lukas-kulas/10xPaintMixer.git
+cd 10xPaintMixer
 ```
 
 2. Install dependencies:

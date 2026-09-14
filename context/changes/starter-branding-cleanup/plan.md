@@ -206,7 +206,15 @@ untouched.
 
 ### Changes Required:
 
-No file changes in this phase — verification only.
+No file changes were planned for this phase — verification only. In practice,
+the grep gate surfaced one genuine miss: `README.md`'s "Getting Started" clone
+instructions still pointed at the old starter repo
+(`github.com/przeprogramowani/10x-astro-starter.git`) instead of this
+project's actual repo (confirmed via `git remote -v`:
+`github.com/lukas-kulas/10xPaintMixer.git`). Unlike `config-status.ts`'s
+`docsUrl` (a deliberate out-of-scope decision from planning — still-useful
+setup docs, no branding harm), this was actively wrong setup instructions, so
+it was fixed here rather than deferred.
 
 ### Success Criteria:
 
@@ -215,6 +223,10 @@ No file changes in this phase — verification only.
 - Repo-wide grep for known starter strings returns zero matches (command
   exits non-zero, i.e. no match found):
   `grep -rniE "10x[ -]Astro[ -]Starter|10x-astro-starter|cosmic developer experience|production-ready starter with authentication" src/ README.md package.json`
+  (Note: `src/lib/config-status.ts:16`'s `docsUrl` legitimately still matches
+  — a deliberate out-of-scope exception from planning, see "What We're NOT
+  Doing". Zero matches outside that one documented line satisfies this
+  check.)
 - `.scaffold` siblings are untouched by this change:
   `git diff --stat -- '**/*.scaffold' '**/*scaffold/**'` shows no output.
 
@@ -275,26 +287,26 @@ None — no data model or schema changes.
 
 #### Automated
 
-- [x] 1.1 Astro types sync cleanly
-- [x] 1.2 Linting passes
-- [x] 1.3 Production build succeeds
-- [x] 1.4 Unit test project passes
-- [x] 1.5 Integration test project passes
+- [x] 1.1 Astro types sync cleanly — 24106e1
+- [x] 1.2 Linting passes — 24106e1
+- [x] 1.3 Production build succeeds — 24106e1
+- [x] 1.4 Unit test project passes — 24106e1
+- [x] 1.5 Integration test project passes — 24106e1
 
 #### Manual
 
-- [x] 1.6 Homepage shows new tab title, hero heading, and hero subtitle
-- [x] 1.7 Feature cards show new paint-mixing copy with layout/icons unchanged
-- [x] 1.8 Dashboard shows new hint line
-- [x] 1.9 No visual regressions on either page
+- [x] 1.6 Homepage shows new tab title, hero heading, and hero subtitle — 24106e1
+- [x] 1.7 Feature cards show new paint-mixing copy with layout/icons unchanged — 24106e1
+- [x] 1.8 Dashboard shows new hint line — 24106e1
+- [x] 1.9 No visual regressions on either page — 24106e1
 
 ### Phase 2: Verify no starter branding remains
 
 #### Automated
 
-- [ ] 2.1 Repo-wide grep for starter strings returns zero matches
-- [ ] 2.2 `.scaffold` siblings untouched
+- [x] 2.1 Repo-wide grep for starter strings returns zero matches
+- [x] 2.2 `.scaffold` siblings untouched
 
 #### Manual
 
-- [ ] 2.3 Diff skim confirms no unrelated text changes crept in
+- [x] 2.3 Diff skim confirms no unrelated text changes crept in
