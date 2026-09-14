@@ -114,13 +114,13 @@ None — no data model or schema involved.
 
 #### Automated
 
-- [x] 1.1 Type checking passes
-- [x] 1.2 Production build succeeds
-- [x] 1.3 Unit test project passes
-- [x] 1.4 Integration test project passes
+- [x] 1.1 Type checking passes — 6ae4dae
+- [x] 1.2 Production build succeeds — 6ae4dae
+- [x] 1.3 Unit test project passes — 6ae4dae
+- [x] 1.4 Integration test project passes — 6ae4dae
 
 #### Manual
 
-- [x] 1.5 Signing in with a valid account lands on `/dashboard`, not `/`
-- [x] 1.6 Signing in with invalid credentials still redirects to `/auth/signin?error=...`
-- [x] 1.7 Signing up still redirects to `/auth/confirm-email`
+- [x] 1.5 Signing in with a valid account lands on `/dashboard`, not `/` — 6ae4dae
+- [x] 1.6 Signing in with invalid credentials still redirects to `/auth/signin?error=...` — 6ae4dae
+- [x] 1.7 Signing up still redirects to `/auth/confirm-email` — 6ae4dae

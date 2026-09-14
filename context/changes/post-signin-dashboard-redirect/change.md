@@ -1,7 +1,7 @@
 ---
 change_id: post-signin-dashboard-redirect
 title: Redirect to dashboard after successful sign-in
-status: implementing
+status: implemented
 created: 2026-09-14
 updated: 2026-09-14
 archived_at: null
